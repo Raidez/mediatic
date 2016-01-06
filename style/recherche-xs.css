@@ -7,4 +7,4 @@ form select { margin-top: 1.5em;}
 form button { margin-top: 1.3em;}
 
 /*------------- ficheMedia.html --------------*/
-#hr { display: block; }
+#hr, #hideMeForMd { display: block; }

@@ -7,3 +7,4 @@ Concevoir une application réunissant l'ensemble des connaissances acquises duran
 Auteurs :
 - Hugo Vérité
 - Alexis Lucien ([Raidez](https://github.com/Raidez))
+- Paul-Henry Galimberti

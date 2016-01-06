@@ -11,6 +11,7 @@
 <link rel="stylesheet" media="screen" href="../style/recherche-xs.css" />
 <link rel="stylesheet" media="screen and (min-width: 992px)"
 	href="../style/recherche.css" />
+<link rel="stylesheet" media="screen" href="../style/special.css" />
 </head>
 <body>
 	<header>
@@ -58,24 +59,42 @@
 		<form class="form-inline col-md-10 col-md-push-1">
 			<fieldset class="row">
 				<legend>Information générale</legend>
-				<label for="titre">Titre: </label> <input id="titre" type="text"
-					placeholder="titre" class="form-control"> <label
-					for="auteur">Auteur: </label> <input id="auteur" type="text"
-					placeholder="auteur" class="form-control"> <select
-					class="form-control">
-					<option>CD</option>
-					<option>DVD</option>
-					<option>Livre</option>
-				</select>
+				<label for="nom">Nom: </label> <input id="nom" type="text"
+					placeholder="nom" class="form-control"> <label for="prenom">Prénom:
+				</label> <input id="prenom" type="text" placeholder="prénom"
+					class="form-control"> <label for="mail">E-mail: </label> <input
+					id="mail" type="text" placeholder="e-mail" class="form-control">
+				<label for="date">Date de naissance: </label> <input id="date"
+					type="date" placeholder="date de naissance" class="form-control">
+				<input id="age" type="text" class="form-control input-xs"
+					readonly="true">
 			</fieldset>
 			<br>
 			<div class="row">
-				<label for="emprunteur">Emprunteur: </label> <input id="emprunteur"
-					type="text" placeholder="emprunteur" class="form-control">
-				<label for="empruntDate">Date de l'emprunt: </label> <input
-					id="empruntDate" type="date" placeholder="auteur"
-					class="form-control">
+				<label for="adress">Adresse: </label> <input id="adress" type="text"
+					placeholder="adresse" class="form-control"> <label
+					for="postal">Code Postal: </label> <input id="postal" type="text"
+					placeholder="code postal" class="form-control"> <label
+					for="ville">Ville: </label> <input id="ville" type="text"
+					placeholder="ville" class="form-control">
+
 			</div>
+			<hr id="hr">
+			<fieldset class="row">
+				<legend>Cotisation</legend>
+				<label for="paiement">Début: </label> <input id="paiement"
+					type="date" placeholder="date de paiement" class="form-control">
+				<div class="input-group">
+					<label for="montant" class="input-group-addon"><span
+						class="glyphicon glyphicon-euro"></span></label> <input id="montant"
+						type="text" placeholder="montant de la cotisation"
+						class="form-control">
+				</div>
+				<label for="dateFin">Fin: </label>
+				<input id="dateFin" type="date" class="form-control"
+					readonly="true">
+			</fieldset>
+			<br>
 			<button type="submit" class="btn btn-primary">Enregistrer</button>
 		</form>
 	</section>
