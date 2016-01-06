@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>Recherche adhérent</title>
-	<!-- framework -->
-	<link rel="stylesheet" href="../framework/bootstrap.min.css">
-	<script src="../framework/jquery.min.js"></script>
-	<script src="../framework/bootstrap.min.js"></script>
-	<!-- perso -->
-	<link rel="stylesheet" media="screen" href="../style/recherche-xs.css" />
-	<link rel="stylesheet" media="screen and (min-width: 992px)" href="../style/recherche.css" />
+<meta charset="utf-8">
+<title>Recherche adhérent</title>
+<!-- framework -->
+<link rel="stylesheet" href="../framework/bootstrap.min.css">
+<script src="../framework/jquery.min.js"></script>
+<script src="../framework/bootstrap.min.js"></script>
+<!-- perso -->
+<link rel="stylesheet" media="screen" href="../style/recherche-xs.css" />
+<link rel="stylesheet" media="screen and (min-width: 992px)"
+	href="../style/recherche.css" />
 </head>
 <body>
 	<header>
@@ -43,7 +44,8 @@
 
 						<!-- listes boutons de droite -->
 						<ul class="nav navbar-nav navbar-right">
-							<li class="visible-sm visible-md visible-lg"><p class="navbar-text">Nom Utilisateur</p></li>
+							<li class="visible-sm visible-md visible-lg"><p
+									class="navbar-text">Nom Utilisateur</p></li>
 							<li><a href="#">Déconnexion</a></li>
 						</ul>
 					</div>
@@ -51,17 +53,61 @@
 			</nav>
 		</div>
 	</header>
-	
-	<section id="contenu" class="container-fluid">
-		<form class="form-inline col-md-10 col-md-push-2">
-			<label for="id">ID: </label>
-				<input  id="id" type="text" placeholder="ID" class="form-control">
-			<label id="lab_nom" for="nom">Nom: </label>
-				<input id="nom" type="text" placeholder="Nom" class="form-control">
-			
-			<button type="submit" class="btn btn-primary">Rechercher</button>
-			<button type="button" class="btn btn-success">Nouveau</button>
-		</form>
+
+	<section id="contenu" class="container-fluid">	
+			<form class="form-inline col-md-10 col-md-push-1">
+				<label for="id">ID: </label> <input id="id" type="text"
+					placeholder="ID" class="form-control"> <label id="lab_nom"
+					for="nom">Nom: </label> <input id="nom" type="text"
+					placeholder="Nom" class="form-control">
+
+				<button type="submit" class="btn btn-primary">Rechercher</button>
+				<button type="button" class="btn btn-success">Nouveau</button>
+			</form>
+	</section>
+	<hr>
+	<section class="container-fluid">
+		
+			<div class="col-md-10 col-md-push-1">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Nom</th>
+							<th>Prénom</th>
+							<th>Date de naissance</th>
+							<th>Cotisation</th>
+							<th>Nbres d'emprunts</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1001</td>
+							<td>Doe</td>
+							<td>Jane</td>
+							<td>11/11/11</td>
+							<td>oui</td>
+							<td>25</td>
+						</tr>
+						<tr>
+							<td>1002</td>
+							<td>Doe</td>
+							<td>Jane</td>
+							<td>11/11/11</td>
+							<td>oui</td>
+							<td>25</td>
+						</tr>
+						<tr>
+							<td>1003</td>
+							<td>Doe</td>
+							<td>Jane</td>
+							<td>11/11/11</td>
+							<td>oui</td>
+							<td>25</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 	</section>
 </body>
 </html>
