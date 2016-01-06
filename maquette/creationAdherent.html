@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="test" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+<title>création d'un nouvel adhérent</title>
+
+<!-- Bootstrap -->
+<link href="../bootstrap-3.3.6-dist/css/bootstrap.min.css"
+	rel="stylesheet">
+
+</head>
+<body>
+	<!-- Button trigger modal -->
+	<button type="button" class="btn btn-primary btn-lg"
+		data-toggle="modal" data-target="#nouvelAdherentModal">
+		Nouveau</button>
+
+	<!-- Modal -->
+	<div class="modal fade" id="nouvelAdherentModal" tabindex="-1"
+		role="dialog" aria-labelledby="nouvelAdherentModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+
+
+				<!-- entête de la modale -->
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="nouvelAdherentModalLabel">
+						<span class="hidden-xs">Ajout d'un </span>nouvel adhérent
+					</h4>
+				</div>
+
+
+				<!-- corps de la modale -->
+				<div class="modal-body">
+					<!-- formulaire à renseigner -->
+					<form class="form-horizontal">
+
+						<div class="form-group">
+							<label for="nom" class="col-sm-2 control-label">Nom</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="nom"
+									placeholder="Nom" required>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="prenom" class="col-sm-2 control-label">Prénom</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="prenom"
+									placeholder="Prénom" required>
+							</div>
+						</div>
+
+						<!--  à modifier avec angular / ui-bootstrap  ne pas oublier required-->
+						<div class="form-group">
+							<label for="dateNaissance" class="col-sm-2 control-label">Date
+								de naissance</label>
+							<div class="col-sm-8">
+								<input type="date" class="form-control" id="dateNaissance"
+									placeholder="jj/mm/aaaa" required>
+							</div>
+							<label class="col-sm-2 control-label">22 ans</label>
+						</div>
+
+						<div class="form-group">
+							<label for="email" class="col-sm-2 control-label">Email</label>
+							<div class="col-sm-10">
+								<input type="email" class="form-control" id="Email"
+									placeholder="Email" required>
+							</div>
+						</div>
+
+						<hr style="border-color: darkgrey;">
+
+						<div class="form-group">
+							<label for="adresse" class="col-sm-2 control-label">Adresse</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="adresse"
+									placeholder="Adresse">
+							</div>
+						</div>
+
+						<div class="form-group">
+
+							<div class="col-sm-3 col-sm-offset-2">
+								<input type="text" class="form-control" id="codePostal"
+									placeholder="Code postal">
+							</div>
+							<div class="col-sm-7">
+								<input type="text" class="form-control" id="ville"
+									placeholder="Ville">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="montantCotisation" class="col-sm-2 control-label">Cotisation</label>
+
+							<div class="col-sm-10">
+								<div class="input-group">
+									<div class="input-group-addon ">€</div>
+									<input type="text" class="form-control " id="montantCotisation"
+										placeholder="Montant">
+									<div class="input-group-addon ">.00</div>
+								</div>
+							</div>
+
+						</div>
+
+<!--  à modifier avec angular / ui-bootstrap  ne pas oublier required-->
+						<div class="form-group">
+							<label for="datePaiement" class="col-sm-2 control-label">Date
+								de paiement</label>
+							<div class="col-sm-10">
+								<input type="date" class="form-control" id="datePaiement"
+									placeholder="jj/mm/aaaa" required>
+							</div>
+						</div>
+<!-- à modifier après backend -->						
+						<div class="form-group">
+							<label class="col-sm-12 control-label">Date de fin d'abonnement : 14/12/2017</label>
+						</div>
+						
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+					<button type="button" class="btn btn-primary">Confirmer</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+	<script src="../../bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>
