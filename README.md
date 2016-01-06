@@ -1,4 +1,9 @@
-# mediatic
-Projet fil rouge durant la formation DTA IngÃ©nerie
+# Mediatic
+Projet fil rouge durant la formation DTA Ingénerie
 
-Auteurs : Hugo VÃ©ritÃ©
+### objectifs du projet
+Concevoir une application réunissant l'ensemble des connaissances acquises durant la formation.
+
+Auteurs :
+- Hugo Vérité
+- Alexis Lucien ([Raidez](https://github.com/Raidez))

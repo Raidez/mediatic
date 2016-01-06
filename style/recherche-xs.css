@@ -1,12 +1,10 @@
-section#contenu {
-	margin-top: 5em;
-}
-section#contenu form {
-	text-align:center;
-}
-section#contenu form select {
-	margin-top: 1.5em;
-}
-section#contenu form button {
-	margin-top: 1.3em;
-}
+/*----------- décalage à cause de la navbar ---------------*/
+section#contenu { margin-top: 5em; }
+
+/*------------ formulaire général --------------*/
+form { text-align:center;}
+form select { margin-top: 1.5em;}
+form button { margin-top: 1.3em;}
+
+/*------------- ficheMedia.html --------------*/
+#hr { display: block; }
