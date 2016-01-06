@@ -1,18 +1,12 @@
 section#contenu {
 	margin-top: 5em;
 }
-#lab_nom, #lab_auteur {
-	margin-left: 0.5em;
-}
-section#contenu button[type=submit] {
-	margin-left: 2em;
-} 
 section#contenu form {
 	text-align:center;
 }
 section#contenu form select {
-	margin-top: 0;
+	margin-top: 1.5em;
 }
 section#contenu form button {
-	margin-top: 0;
+	margin-top: 1.3em;
 }
