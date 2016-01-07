@@ -53,30 +53,111 @@
 			</nav>
 		</div>
 	</header>
+	
+	<!-- Modal -->
+	<div class="modal fade" id="modificationMedia" tabindex="-1" role="dialog"
+		aria-labelledby="nouveauMediaModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+
+
+				<!-- entête de la modale -->
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="nouveauMediaModalLabel">
+						<span class="hidden-xs">Ajout d'un </span>nouveau média
+					</h4>
+					
+					
+				</div>
+
+
+				<!-- corps de la modale -->
+				<div class="modal-body">
+					<!-- formulaire à renseigner -->
+					<form class="form-horizontal">
+
+						<div class="form-group">
+							<label for="titre" class="col-sm-2 control-label">Titre*</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="titre"
+									placeholder="Titre" required>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="type" class="col-sm-2 control-label">Type*</label>
+							<div class="col-sm-10">
+								<select class="form-control" id="type" required><option>Livre</option>
+									<option>CD</option>
+									<option>DVD</option>
+								</select>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="auteur" class="col-sm-2 control-label">Auteur*</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="auteur"
+									placeholder="Auteur" required>
+							</div>
+						</div>
+
+						<!-- à supprimer -->
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="submit" class="btn btn-default">test
+									formulaire</button>
+							</div>
+						</div>
+
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+					<button type="button" class="btn btn-primary">Enregistrer</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<section id="contenu" class="container-fluid">
+		<img class="center-block" src="le-chien-des-baskerville.jpg" alt="couverture du roman" height="220em" />
+		<br>
 		<form class="form-inline col-md-10 col-md-push-1">
 			<fieldset class="row">
 				<legend>Information générale</legend>
-				<label for="titre">Titre: </label> <input id="titre" type="text"
-					placeholder="titre" class="form-control"> <label
-					for="auteur">Auteur: </label> <input id="auteur" type="text"
-					placeholder="auteur" class="form-control"> <select
-					class="form-control">
-					<option>CD</option>
-					<option>DVD</option>
-					<option>Livre</option>
-				</select>
+				<div class="input-group">
+					<span class="input-group-addon">Titre</span>
+					<p class="form-control">Le chien des Baskerville</p>
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">Auteur</span>
+					<p class="form-control">Conan Doyle</p>
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">Type</span>
+					<p class="form-control">Livre</p>
+				</div>
 			</fieldset>
 			<br>
 			<div class="row">
-				<label for="emprunteur">Emprunteur: </label> <input id="emprunteur"
-					type="text" placeholder="emprunteur" class="form-control">
-				<label for="empruntDate">Date de l'emprunt: </label> <input
-					id="empruntDate" type="date" placeholder="auteur"
-					class="form-control">
+				<div class="input-group">
+					<span class="input-group-addon">Emprunteur</span>
+					<p class="form-control">Alexis</p>
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">Date de l'emprunt</span>
+					<p class="form-control">14/11/2005</p>
+				</div>
 			</div>
-			<button type="submit" class="btn btn-primary">Enregistrer</button>
+			<button type="button" class="btn btn-primary"
+			data-toggle="modal" data-target="#modificationMedia">Modifier</button>
+			<button type="button" class="btn btn-primary"
+			data-toggle="modal" data-target="#ajoutEmprunteur">Ajouter un prêt</button>
 		</form>
 	</section>
 </body>
