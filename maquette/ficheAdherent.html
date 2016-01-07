@@ -8,12 +8,64 @@
 <script src="../framework/jquery.min.js"></script>
 <script src="../framework/bootstrap.min.js"></script>
 <!-- perso -->
-<link rel="stylesheet" media="screen" href="../style/recherche-xs.css" />
-<link rel="stylesheet" media="screen and (min-width: 992px)"
-	href="../style/recherche.css" />
-<link rel="stylesheet" media="screen" href="../style/special.css" />
+<link rel="stylesheet" media="screen" href="css/recherche-xs.css" />
 </head>
 <body>
+	<section id="contenu" class="container-fluid">
+		<form id="form_adh" class="">
+			<fieldset >
+				<legend>Information générale</legend>
+				<div class="input-group">
+					<span class="input-group-addon">Nom</span>
+					<p class="form-control">Lucien</p>
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">Prénom</span>
+					<p class="form-control">Alexis</p>
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">E-mail</span>
+					<p class="form-control">alexislucien72@gmail.com</p>
+				</div>
+				<br><br>
+				<div class="">
+					<span class="input-group ">
+					<span class="input-group-addon">Date de naissance</span>
+					<p class="form-control">07/03/1994</p>
+				</span>
+				<span class="input-group ">
+					<p class="form-control">21</p>
+				</span>
+				</div>
+			</fieldset>
+			<br>
+			<div class="row input-group">
+				<span class="input-group-addon">Adresse</span>
+				<p class="form-control">31 rue des Criquets, Mulsanne 72230</p>
+			</div>
+			<fieldset class="row" style="margin-top:1em">
+				<legend>Cotisation</legend>
+				<div class="input-group">
+					<span class="input-group-addon">Début</span>
+					<p class="form-control">14/11/2002</p>
+				</div>
+				<div class="input-group">
+					<p class="form-control">5237</p>
+					<span class="input-group-addon"><span class="glyphicon glyphicon-euro"></span></span>
+				</div>
+				<div class="input-group">
+					<span class="input-group-addon">Fin</span>
+					<p class="form-control">14/11/2015</p>
+				</div>
+			</fieldset>
+			<br>
+			<button type="button" class="btn btn-primary"
+			data-toggle="modal" data-target="#modificationAdherent">Modifier</button>
+			<button type="button" class="btn btn-primary"
+			data-toggle="modal" data-target="#ajoutEmprunt">Ajouter un emprunt</button>
+		</form>
+	</section>
+	
 	<header>
 		<div id="navbar">
 			<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -183,58 +235,5 @@
 			</div>
 		</div>
 	</div>
-
-	<section id="contenu" class="container-fluid">
-		<form class="form-inline col-md-10 col-md-push-1">
-			<fieldset class="row">
-				<legend>Information générale</legend>
-				<div class="input-group">
-					<span class="input-group-addon">Nom</span>
-					<p class="form-control">Lucien</p>
-				</div>
-				<div class="input-group">
-					<span class="input-group-addon">Prénom</span>
-					<p class="form-control">Alexis</p>
-				</div>
-				<div class="input-group">
-					<span class="input-group-addon">E-mail</span>
-					<p class="form-control">alexislucien72@gmail.com</p>
-				</div>
-				<div class="input-group">
-					<span class="input-group-addon">Date de naissance</span>
-					<p class="form-control">07/03/1994</p>
-				</div>
-				<div class="input-group">
-					<p class="form-control">21</p>
-				</div>
-			</fieldset>
-			<br>
-			<div class="row input-group">
-				<span class="input-group-addon">Adresse</span>
-				<p class="form-control">31 rue des Criquets, Mulsanne 72230</p>
-			</div>
-			<hr id="hr">
-			<fieldset class="row">
-				<legend>Cotisation</legend>
-				<div class="input-group">
-					<span class="input-group-addon">Début</span>
-					<p class="form-control">14/11/2002</p>
-				</div>
-				<div class="input-group">
-					<p class="form-control">5237</p>
-					<span class="input-group-addon"><span class="glyphicon glyphicon-euro"></span></span>
-				</div>
-				<div class="input-group">
-					<span class="input-group-addon">Fin</span>
-					<p class="form-control">14/11/2015</p>
-				</div>
-			</fieldset>
-			<br>
-			<button type="button" class="btn btn-primary"
-			data-toggle="modal" data-target="#modificationAdherent">Modifier</button>
-			<button type="button" class="btn btn-primary"
-			data-toggle="modal" data-target="#ajoutEmprunt">Ajouter un emprunt</button>
-		</form>
-	</section>
 </body>
 </html>

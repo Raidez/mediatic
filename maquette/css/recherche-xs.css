@@ -1,0 +1,14 @@
+/*----------- d�calage � cause de la navbar ---------------*/
+/*section#contenu { margin-top: 5em; }*/
+
+/*------------ formulaire g�n�ral --------------*/
+/*form { text-align:center;}
+form select { margin-top: 1.5em;}
+form button { margin-top: 1.3em;}*/
+/*------------- ficheMedia.html --------------*/
+/*#hr, #hideMeForMd { display: block; }*/
+
+#form_adh, #form_med {
+	margin-top: 6em;
+	text-align: center;
+}
