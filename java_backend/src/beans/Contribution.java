@@ -63,6 +63,17 @@ public class Contribution {
 		this.payementDate = payementDate;
 		this.endDate = payementDate.plusYears(1);
 	}
+	
+	public void setPayementDate(String payementDate) {
+		this.setPayementDate(LocalDate.parse(payementDate));
+	}
+	
+	public void setBirthDate(String payementDate , DateFormatList dateFormat) {
+		this.setPayementDate(LocalDate.parse(payementDate, DateTimeFormatter.ofPattern(dateFormat.toString())));
+	}
+	
+	
+	
 	public LocalDate getEndDate() {
 		return endDate;
 	}
