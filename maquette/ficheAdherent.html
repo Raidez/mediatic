@@ -4,16 +4,96 @@
 <meta charset="utf-8">
 <title>Fiche média</title>
 <!-- framework -->
-<link rel="stylesheet" href="../framework/bootstrap.min.css">
-<script src="../framework/jquery.min.js"></script>
-<script src="../framework/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <!-- perso -->
-<link rel="stylesheet" media="screen" href="../style/recherche-xs.css" />
-<link rel="stylesheet" media="screen and (min-width: 992px)"
-	href="../style/recherche.css" />
-<link rel="stylesheet" media="screen" href="../style/special.css" />
+<link rel="stylesheet" media="screen" href="css/recherche-xs.css" />
 </head>
 <body>
+	<section id="contenu" class="container-fluid">
+		<form id="form_adh" class="form-horizontal col-xs-12 col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
+			<fieldset >
+				<legend>Information générale</legend>
+				<div class="col-md-8">
+				<div class="col-md-4">
+				<div class="input-group">
+					<span class="input-group-addon ">Nom</span>
+					<p class="form-control ">Lucien</p>
+				</div>
+				</div>
+				<div class="col-md-4">
+				<div class="input-group">
+					<span class="input-group-addon">Prénom</span>
+					<p class="form-control">Alexis</p>
+				</div>
+				</div>
+					
+				<div class="col-md-4">
+				<div class="input-group">
+					<span class="input-group-addon">E-mail</span>
+					<p class="form-control">alexislucien72@gmail.com</p>
+					</div>
+					</div>
+				</div>
+				<br><br>
+				<div class="col-md-8">
+				<div class="col-md-6">
+				<div class="input-group">
+					<span class="input-group-addon ">Date de naissance</span>
+					<p class="form-control ">07/03/1994</p>
+				</div>
+				</div>
+				<div class="col-md-6">
+				<div class="input-group">
+					<span class="input-group-addon">age</span>
+					<p class="form-control">21</p>
+				</div>
+				</div>
+					
+				<div class="col-md-6">
+				<div class="input-group">
+					<span class="input-group-addon">Adresse</span>
+					<p class="form-control">31 rue des Criquets, Mulsanne 72230</p>
+					</div>
+					</div>
+				</div>
+				<br><br>
+				
+			</fieldset>
+			<fieldset class="row" style="margin-top:1em">
+				<legend>Cotisation</legend>
+				<div class="col-md-8">
+				<div class="col-md-4">
+				<div class="input-group">
+					<span class="input-group-addon ">Début</span>
+					<p class="form-control ">14/11/2002</p>
+				</div>
+				</div>
+				<div class="col-md-4">
+				<div class="input-group">
+					<p class="form-control">5237</p>
+					<span class="input-group-addon"><span class="glyphicon glyphicon-euro"></span></span>
+				</div>
+				</div>
+					
+				<div class="col-md-4">
+				<div class="input-group">
+					<span class="input-group-addon">Fin</span>
+					<p class="form-control">14/11/2015</p>
+					</div>
+					</div>
+				</div>
+		
+			</fieldset>
+			<br>
+			<button type="button" class="btn btn-primary"
+			data-toggle="modal" data-target="#modificationAdherent">Modifier</button>
+			<button type="button" class="btn btn-primary"
+			data-toggle="modal" data-target="#ajoutEmprunt">Ajouter un emprunt</button>
+		</form>
+	</section>
+	
 	<header>
 		<div id="navbar">
 			<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -54,49 +134,134 @@
 			</nav>
 		</div>
 	</header>
+	
+	<!-- Modal -->
+	<div class="modal fade" id="modificationAdherent" tabindex="-1"
+		role="dialog" aria-labelledby="nouvelAdherentModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
 
-	<section id="contenu" class="container-fluid">
-		<form class="form-inline col-md-10 col-md-push-1">
-			<fieldset class="row">
-				<legend>Information générale</legend>
-				<label for="nom">Nom: </label> <input id="nom" type="text"
-					placeholder="nom" class="form-control"> <label for="prenom">Prénom:
-				</label> <input id="prenom" type="text" placeholder="prénom"
-					class="form-control"> <label for="mail">E-mail: </label> <input
-					id="mail" type="text" placeholder="e-mail" class="form-control">
-				<label for="date">Date de naissance: </label> <input id="date"
-					type="date" placeholder="date de naissance" class="form-control">
-				<input id="age" type="text" class="form-control input-xs"
-					readonly="true">
-			</fieldset>
-			<br>
-			<div class="row">
-				<label for="adress">Adresse: </label> <input id="adress" type="text"
-					placeholder="adresse" class="form-control"> <label
-					for="postal">Code Postal: </label> <input id="postal" type="text"
-					placeholder="code postal" class="form-control"> <label
-					for="ville">Ville: </label> <input id="ville" type="text"
-					placeholder="ville" class="form-control">
 
-			</div>
-			<hr id="hr">
-			<fieldset class="row">
-				<legend>Cotisation</legend>
-				<label for="paiement">Début: </label> <input id="paiement"
-					type="date" placeholder="date de paiement" class="form-control">
-				<div class="input-group">
-					<label for="montant" class="input-group-addon"><span
-						class="glyphicon glyphicon-euro"></span></label> <input id="montant"
-						type="text" placeholder="montant de la cotisation"
-						class="form-control">
+				<!-- entête de la modale -->
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="nouvelAdherentModalLabel">
+						<span class="hidden-xs">Ajout d'un </span>nouvel adhérent
+					</h4>
+					
+					<br/>
+					<div class="alert alert-warning" role="alert">Erreur</div>
 				</div>
-				<label for="dateFin">Fin: </label>
-				<input id="dateFin" type="date" class="form-control"
-					readonly="true">
-			</fieldset>
-			<br>
-			<button type="submit" class="btn btn-primary">Enregistrer</button>
-		</form>
-	</section>
+
+
+				<!-- corps de la modale -->
+				<div class="modal-body">
+					<!-- formulaire à renseigner -->
+					<form class="form-horizontal">
+
+						<div class="form-group">
+							<label for="nom" class="col-sm-2 control-label">Nom*</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="nom"
+									placeholder="Nom" required>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="prenom" class="col-sm-2 control-label">Prénom*</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="prenom"
+									placeholder="Prénom" required>
+							</div>
+						</div>
+
+						<!--  à modifier avec angular / ui-bootstrap  ne pas oublier required-->
+						<div class="form-group">
+							<label for="dateNaissance" class="col-sm-2 control-label">Date
+								de naissance*</label>
+							<div class="col-sm-8">
+								<input type="date" class="form-control" id="dateNaissance"
+									placeholder="jj/mm/aaaa" required>
+							</div>
+							<label class="col-sm-2 control-label">22 ans</label>
+						</div>
+
+						<div class="form-group">
+							<label for="email" class="col-sm-2 control-label">Email*</label>
+							<div class="col-sm-10">
+								<input type="email" class="form-control" id="Email"
+									placeholder="Email" required>
+							</div>
+						</div>
+
+						<hr style="border-color: darkgrey;">
+
+						<div class="form-group">
+							<label for="adresse" class="col-sm-2 control-label">Adresse</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="adresse"
+									placeholder="Adresse">
+							</div>
+						</div>
+
+						<div class="form-group">
+
+							<div class="col-sm-3 col-sm-offset-2">
+								<input type="text" class="form-control" id="codePostal"
+									placeholder="Code postal">
+							</div>
+							<div class="col-sm-7">
+								<input type="text" class="form-control" id="ville"
+									placeholder="Ville">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="montantCotisation" class="col-sm-2 control-label">Cotisation</label>
+
+							<div class="col-sm-10">
+								<div class="input-group">
+									<div class="input-group-addon ">€</div>
+									<input type="text" class="form-control " id="montantCotisation"
+										placeholder="Montant">
+									<div class="input-group-addon ">.00</div>
+								</div>
+							</div>
+
+						</div>
+
+						<!--  à modifier avec angular / ui-bootstrap  ne pas oublier required-->
+						<div class="form-group">
+							<label for="datePaiement" class="col-sm-2 control-label">Date
+								de paiement</label>
+							<div class="col-sm-10">
+								<input type="date" class="form-control" id="datePaiement"
+									placeholder="jj/mm/aaaa" required>
+							</div>
+						</div>
+						<!-- à modifier après backend -->
+						<div class="form-group">
+							<label class="col-sm-12 control-label">Date de fin
+								d'abonnement : 14/12/2017</label>
+						</div>
+						<!-- à supprimer -->
+						<div class="form-group">
+							<div class="col-sm-offset-2 col-sm-10">
+								<button type="submit" class="btn btn-default">test
+									formulaire</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+					<button type="button" class="btn btn-primary">Enregistrer</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
