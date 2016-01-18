@@ -1,5 +1,5 @@
-.project
-.classpath
-.settings/
-target/
+java_backend/.project
+java_backend/.classpath
+java_backend/.settings/
+java_backend/target/
 bootstrap-3.3.6-dist/
