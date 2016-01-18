@@ -4,59 +4,87 @@
 <meta charset="utf-8">
 <title>Fiche média</title>
 <!-- framework -->
-<link rel="stylesheet" href="../framework/bootstrap.min.css">
-<script src="../framework/jquery.min.js"></script>
-<script src="../framework/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <!-- perso -->
 <link rel="stylesheet" media="screen" href="css/recherche-xs.css" />
 </head>
 <body>
 	<section id="contenu" class="container-fluid">
-		<form id="form_adh" class="">
+		<form id="form_adh" class="form-horizontal col-xs-12 col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
 			<fieldset >
 				<legend>Information générale</legend>
+				<div class="col-md-8">
+				<div class="col-md-4">
 				<div class="input-group">
-					<span class="input-group-addon">Nom</span>
-					<p class="form-control">Lucien</p>
+					<span class="input-group-addon ">Nom</span>
+					<p class="form-control ">Lucien</p>
 				</div>
+				</div>
+				<div class="col-md-4">
 				<div class="input-group">
 					<span class="input-group-addon">Prénom</span>
 					<p class="form-control">Alexis</p>
 				</div>
+				</div>
+					
+				<div class="col-md-4">
 				<div class="input-group">
 					<span class="input-group-addon">E-mail</span>
 					<p class="form-control">alexislucien72@gmail.com</p>
+					</div>
+					</div>
 				</div>
 				<br><br>
-				<div class="">
-					<span class="input-group ">
-					<span class="input-group-addon">Date de naissance</span>
-					<p class="form-control">07/03/1994</p>
-				</span>
-				<span class="input-group ">
-					<p class="form-control">21</p>
-				</span>
+				<div class="col-md-8">
+				<div class="col-md-6">
+				<div class="input-group">
+					<span class="input-group-addon ">Date de naissance</span>
+					<p class="form-control ">07/03/1994</p>
 				</div>
+				</div>
+				<div class="col-md-6">
+				<div class="input-group">
+					<span class="input-group-addon">age</span>
+					<p class="form-control">21</p>
+				</div>
+				</div>
+					
+				<div class="col-md-6">
+				<div class="input-group">
+					<span class="input-group-addon">Adresse</span>
+					<p class="form-control">31 rue des Criquets, Mulsanne 72230</p>
+					</div>
+					</div>
+				</div>
+				<br><br>
+				
 			</fieldset>
-			<br>
-			<div class="row input-group">
-				<span class="input-group-addon">Adresse</span>
-				<p class="form-control">31 rue des Criquets, Mulsanne 72230</p>
-			</div>
 			<fieldset class="row" style="margin-top:1em">
 				<legend>Cotisation</legend>
+				<div class="col-md-8">
+				<div class="col-md-4">
 				<div class="input-group">
-					<span class="input-group-addon">Début</span>
-					<p class="form-control">14/11/2002</p>
+					<span class="input-group-addon ">Début</span>
+					<p class="form-control ">14/11/2002</p>
 				</div>
+				</div>
+				<div class="col-md-4">
 				<div class="input-group">
 					<p class="form-control">5237</p>
 					<span class="input-group-addon"><span class="glyphicon glyphicon-euro"></span></span>
 				</div>
+				</div>
+					
+				<div class="col-md-4">
 				<div class="input-group">
 					<span class="input-group-addon">Fin</span>
 					<p class="form-control">14/11/2015</p>
+					</div>
+					</div>
 				</div>
+		
 			</fieldset>
 			<br>
 			<button type="button" class="btn btn-primary"
