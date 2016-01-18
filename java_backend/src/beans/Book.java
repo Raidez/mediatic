@@ -2,11 +2,15 @@ package beans;
 
 public class Book extends Media {
 	public Book(String title, String author) {
-		super(title, author);
+		super(title, author, 30);
 	}
-	
+
+	public Book(String title, String author, int loan) {
+		super(title, author, loan);
+	}
+
 	@Override
-	public String getType() {
-		return this.getClass().getSimpleName();
+	public TypeMedia getType() {
+		return TypeMedia.Book;
 	}
 }
