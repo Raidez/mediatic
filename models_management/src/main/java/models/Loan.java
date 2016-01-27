@@ -2,19 +2,34 @@ package models;
 
 import java.time.LocalDate;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "loan")
 public class Loan {
 	// attr
+	@Id
+	@GeneratedValue
+	private Long id;
+	@ManyToOne
 	private Media media;
-	private Adherent adherant;
+	@ManyToOne
+	private Adherent adherent;
+	@Column(nullable = false)
 	private LocalDate loanDate;
 
 	// get
+	public Long getID() {
+		return this.id;
+	}
+
 	public Media getMedia() {
 		return this.media;
 	}
 
-	public Adherent getAdherant() {
-		return this.adherant;
+
+	public Adherent getAdherent() {
+		return this.adherent;
 	};
 
 	public LocalDate getDate() {
@@ -22,14 +37,29 @@ public class Loan {
 	}
 
 	// constr
-	public Loan(Media media, Adherent adherant, LocalDate loanDate) {
+	public Loan() {
+	}
+
+	public Loan(Media media, Adherent adherent, LocalDate loanDate) {
 		this.media = media;
-		this.adherant = adherant;
+		this.adherent = adherent;
 		this.loanDate = loanDate;
 	}
 
 	// method
 	public LocalDate getReturnDate() {
-		return this.loanDate.plusDays(this.media.getLoanDays());
+		LocalDate dateRetour = null;
+
+		switch (this.media.getType()) {
+		default:
+		case Book:
+			dateRetour = this.loanDate.plusDays(30);
+			break;
+		case CD:
+		case DVD:
+			dateRetour = this.loanDate.plusDays(15);
+			break;
+		}
+		return dateRetour;
 	}
 }
