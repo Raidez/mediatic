@@ -11,8 +11,11 @@ public abstract class Media {
 	@Id
 	@GeneratedValue
 	private Long id;
+	@Column(nullable = false)
 	private String title;
+	@Column(nullable = false)
 	private String author;
+	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
 	private TypeMedia type;
 	

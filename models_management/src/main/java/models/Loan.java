@@ -13,8 +13,9 @@ public class Loan {
 	private Long id;
 	@ManyToOne
 	private Media media;
-	@Transient
-	private Adherant adherant;
+	@ManyToOne
+	private Adherent adherent;
+	@Column(nullable = false)
 	private LocalDate loanDate;
 
 	// get
@@ -26,8 +27,8 @@ public class Loan {
 		return this.media;
 	}
 
-	public Adherant getAdherant() {
-		return this.adherant;
+	public Adherent getAdherent() {
+		return this.adherent;
 	};
 
 	public LocalDate getDate() {
@@ -38,9 +39,9 @@ public class Loan {
 	public Loan() {
 	}
 
-	public Loan(Media media, Adherant adherant, LocalDate loanDate) {
+	public Loan(Media media, Adherent adherent, LocalDate loanDate) {
 		this.media = media;
-		this.adherant = adherant;
+		this.adherent = adherent;
 		this.loanDate = loanDate;
 	}
 
