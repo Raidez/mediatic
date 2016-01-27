@@ -1,15 +1,28 @@
 package models;
 
+import java.util.List;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name= "media")
 public abstract class Media {
 	// attr
-	private static int counter = 0;
-	private int id;
+	@Id
+	@GeneratedValue
+	private Long id;
 	private String title;
 	private String author;
-	private int loanDays;
+	@Enumerated(EnumType.STRING)
+	private TypeMedia type;
+	
+	@OneToMany(mappedBy = "media")
+	private List<Loan> loanList;
+	
+	
 
 	// get
-	public int getID() {
+	public Long getID() {
 		return this.id;
 	}
 
@@ -21,8 +34,8 @@ public abstract class Media {
 		return this.author;
 	}
 
-	public int getLoanDays() {
-		return this.loanDays;
+	public TypeMedia getType() {
+		return this.type;
 	}
 
 	// set
@@ -35,19 +48,11 @@ public abstract class Media {
 	}
 
 	// constr
+	public Media() {
+	}
+
 	public Media(String title, String author) {
-		this.id = counter++; // increment counter for next media
 		this.title = title;
 		this.author = author;
 	}
-
-	public Media(String title, String author, int loan) {
-		this.id = counter++; // increment counter for next media
-		this.title = title;
-		this.author = author;
-		this.loanDays = loan;
-	}
-
-	// method
-	public abstract TypeMedia getType();
 }
