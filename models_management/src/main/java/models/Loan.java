@@ -17,6 +17,7 @@ public class Loan {
 	private Adherent adherent;
 	@Column(nullable = false)
 	private LocalDate loanDate;
+	private LocalDate returnDate;
 
 	// get
 	public Long getID() {
@@ -35,6 +36,9 @@ public class Loan {
 	public LocalDate getDate() {
 		return this.loanDate;
 	}
+	public LocalDate getReturnDate() {
+		return this.returnDate;
+	}
 
 	// constr
 	public Loan() {
@@ -47,7 +51,7 @@ public class Loan {
 	}
 
 	// method
-	public LocalDate getReturnDate() {
+	public LocalDate getCalculatedDate() {
 		LocalDate dateRetour = null;
 
 		switch (this.media.getType()) {
