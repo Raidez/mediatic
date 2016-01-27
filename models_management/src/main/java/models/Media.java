@@ -22,7 +22,8 @@ public abstract class Media {
 	@OneToMany(mappedBy = "media")
 	private List<Loan> loanList;
 	
-	
+	//TODO
+	//private Loan currentLoan; utiliser @Formula
 
 	// get
 	public Long getID() {
