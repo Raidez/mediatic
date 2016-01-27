@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class Loan {
 	// attr
 	private Media media;
-	private Adherant adherant;
+	private Adherent adherant;
 	private LocalDate loanDate;
 
 	// get
@@ -13,7 +13,7 @@ public class Loan {
 		return this.media;
 	}
 
-	public Adherant getAdherant() {
+	public Adherent getAdherant() {
 		return this.adherant;
 	};
 
@@ -22,7 +22,7 @@ public class Loan {
 	}
 
 	// constr
-	public Loan(Media media, Adherant adherant, LocalDate loanDate) {
+	public Loan(Media media, Adherent adherant, LocalDate loanDate) {
 		this.media = media;
 		this.adherant = adherant;
 		this.loanDate = loanDate;
