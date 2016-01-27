@@ -2,4 +2,8 @@ java_backend/.project
 java_backend/.classpath
 java_backend/.settings/
 java_backend/target/
+models_management/.project
+models_management/.classpath
+models_management/.settings/
+models_management/target/
 bootstrap-3.3.6-dist/
