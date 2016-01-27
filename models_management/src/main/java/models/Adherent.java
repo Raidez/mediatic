@@ -12,7 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 import util.datesManagement.DateFormatList;
 
@@ -24,12 +25,15 @@ public class Adherent {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	@Column(nullable=false)
+	@NotBlank
 	private String name;
 	@Column(nullable=false)
+	@NotBlank
 	private String firstName;
 	@Column(nullable=false)
 	private LocalDate birthDate;
 	@Column(nullable=false)
+	@NotBlank
 	private String email;
 	@Column
 	private String adress;
