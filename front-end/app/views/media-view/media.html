@@ -1,26 +1,114 @@
-<section id="contenu" class="container-fluid" ng-controller="mediaController as media">
+<section id="contenu" class="container-fluid" ng-controller="mediaController as ctrl">
+    <!-- modal d'ajout d'empruntreur -->
+    <div class="modal fade" id="ajoutEmprunteur" tabindex="-1" role="dialog" aria-labelledby="nouveauEmprunteurModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
 
-    <form class="form-inline col-md-10 col-md-push-1">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="nouveauEmprunteurModalLabel">Ajout d'un emprunteur</h4>
+                </div>
+                <div class="modal-body" ng-form >
+                    
+                    <label>Nom de l'emprunteur:</label><input type="text" ng-model="ctrl.emprunt.adherent.nom" ng-required="true" />
+                    <label>Prénom de l'emprunteur:</label><input type="text" ng-model="ctrl.emprunt.adherent.prenom" ng-required="true"  />
+                    <label>Date d'emprunt:</label><input type="date" ng-model="ctrl.emprunt.depart" ng-required="true" />
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="ctrl.ajoutEmprunt()">Enregistrer</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal  modification -->
+    <div class="modal fade" id="modificationMedia" tabindex="-1" role="dialog" aria-labelledby="nouveauMediaModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+
+                <!-- entête de la modale -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="nouveauMediaModalLabel">
+						<span class="hidden-xs">Modification du </span> média
+					</h4>
+
+
+                </div>
+
+
+                <!-- corps de la modale -->
+                <div class="modal-body">
+                    <!-- formulaire à renseigner -->
+                    <form class="form-horizontal">
+
+                        <div class="form-group">
+                            <label for="titre" class="col-sm-2 control-label">Titre*</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="titre" placeholder="Titre" required ng-model="ctrl.media.titre">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="type" class="col-sm-2 control-label">Type*</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" id="type" required ng-model="ctrl.media.type">
+                                    <option>Livre</option>
+                                    <option>CD</option>
+                                    <option>DVD</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="auteur" class="col-sm-2 control-label">Auteur*</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="auteur" placeholder="Auteur" required ng-model="ctrl.media.auteur">
+                            </div>
+                        </div>
+
+
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Enregistrer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="form-inline col-md-10 col-md-push-1">
         <fieldset class="row">
             <legend>Information générale</legend>
             <div class="input-group">
                 <span class="input-group-addon">Titre</span>
-                <p class="form-control" ng-bind="media.media.titre"></p>
+                <p class="form-control" ng-bind="ctrl.media.titre"></p>
             </div>
             <div class="input-group">
                 <span class="input-group-addon">Auteur</span>
-                <p class="form-control" ng-bind="media.media.auteur"></p>
+                <p class="form-control" ng-bind="ctrl.media.auteur"></p>
             </div>
             <div class="input-group">
                 <span class="input-group-addon">Type</span>
-                <p class="form-control" ng-bind="media.media.type"></p>
+                <p class="form-control" ng-bind="ctrl.media.type"></p>
             </div>
         </fieldset>
         <br>
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Adherent id</th>
+                    <th>#</th>
                     <th>Nom</th>
                     <th>Prénom</th>
                     <th>Date d'emprunt</th>
@@ -29,15 +117,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat=" adherent in media.emprunteurs ">
-                    <td ng-bind="adherent.adherent.id"></td>
-                    <td ng-bind="adherent.adherent.nom"></td>
-                    <td ng-bind="adherent.adherent.prenom"></td>
-                    <td ng-bind="adherent.depart"></td>
-                    <td ng-bind="adherent.depart"></td>
+                <tr ng-repeat="elm in ctrl.media.emprunteurs track by elm.adherent.id">
+                    <td ng-bind="elm.adherent.id"></td>
+                    <td ng-bind="elm.adherent.nom"></td>
+                    <td ng-bind="elm.adherent.prenom"></td>
+                    <td ng-bind="elm.depart"></td>
+                    <td ng-bind="elm.retour"></td>
                 </tr>
+            </tbody>
+        </table>
 
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modificationMedia">Modifier</button>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ajoutEmprunteur">Ajouter un prêt</button>
-    </form>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modificationMedia">Modifier</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ajoutEmprunteur">Ajouter un emprunteur</button>
+    </div>
 </section>
