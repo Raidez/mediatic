@@ -1,0 +1,44 @@
+<section id="contenu" class="container-fluid" ng-controller="mediaController as media">
+    
+    <br>
+    <form class="form-inline col-md-10 col-md-push-1">
+        <fieldset class="row">
+            <legend>Information générale</legend>
+            <div class="input-group">
+                <span class="input-group-addon">Titre</span>
+                <p class="form-control" ng-bind="media.media.titre"></p>
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">Auteur</span>
+                <p class="form-control" ng-bind="media.media.auteur"></p>
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">Type</span>
+                <p class="form-control" ng-bind="media.media.type"></p>
+            </div>
+        </fieldset>
+        <br>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Adherent id</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Date d'emprunt</th>
+                    <th>Date de retour</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat=" adherent in media.emprunteurs ">
+                    <td ng-bind="adherent.adherent.id"></td>
+                    <td ng-bind="adherent.adherent.nom"></td>
+                    <td ng-bind="adherent.adherent.prenom"></td>
+                    <td ng-bind="adherent.depart"></td>
+                    <td ng-bind="adherent.depart"></td>
+                </tr>
+
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modificationMedia">Modifier</button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ajoutEmprunteur">Ajouter un prêt</button>
+    </form>
+</section>

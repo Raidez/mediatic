@@ -3,13 +3,13 @@
 var app = angular.module('media', ['ngRoute']);
 
 app.config(function ($routeProvider) {
-	$routeProvider.when('/media/:id', {
-		templateUrl: 'views/view-media/media.html',
+	$routeProvider.when('/media', {
+		templateUrl: 'views/media-view/media.html',
 		controller: 'mediaController'
 	});
 });
 
-app.controller('mediaController', function ($http, $routeParam) {
+app.controller('mediaController', function ($http, $routeParams) {
 	var $ = this;
 	
 	//TODO: service get media from id
