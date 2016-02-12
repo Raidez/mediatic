@@ -7,3 +7,6 @@ models_management/.classpath
 models_management/.settings/
 models_management/target/
 bootstrap-3.3.6-dist/
+
+front-end/node_modules/
+front-end/bower_components/
