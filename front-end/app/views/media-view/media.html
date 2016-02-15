@@ -40,7 +40,7 @@
 							<label class="col-sm-3 control-label">Date d'emprunt:</label>
 							<div class="col-sm-9">
 								<div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-language="fr">
-									<input class="form-control" type="date" ng-model="ctrl.emprunt.depart" required />
+									<input class="form-control" type="text" ng-model="ctrl.emprunt.depart" required />
 									<div class="input-group-addon">
 										<span class="glyphicon glyphicon-th"></span>
 									</div>
@@ -139,7 +139,7 @@
 			</div>
 		</fieldset>
 		<br>
-		<table class="table table-hover">
+		<table class="table">
 			<thead>
 				<tr>
 					<th>#</th>
@@ -147,7 +147,6 @@
 					<th>Prénom</th>
 					<th>Date d'emprunt</th>
 					<th>Date de retour</th>
-					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -159,6 +158,15 @@
 					<td ng-bind="elm.retour"></td>
 				</tr>
 			</tbody>
+            <tfoot>
+                <tr style="background-color: #b3b3ff;">
+					<th ng-bind="ctrl.media.emprunteur.id"></th>
+					<th ng-bind="ctrl.media.emprunteur.nom"></th>
+					<th ng-bind="ctrl.media.emprunteur.prenom"></th>
+                    <th></th>
+                    <th></th>
+				</tr>
+            </tfoot>
 		</table>
 
 		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modificationMedia">Modifier</button>
