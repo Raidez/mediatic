@@ -13,6 +13,7 @@
     "angular-mocks": "~1.4.0",
     "angular-i18n": "~1.4.0",
     "html5-boilerplate": "~5.2.0",
-    "bootstrap": "~3.3.6"
+    "bootstrap": "~3.3.6",
+    "bootstrap-datepicker": "~1.6.0"
   }
 }
