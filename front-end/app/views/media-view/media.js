@@ -32,7 +32,7 @@ app.controller('mediaController', function ($http, $routeParams, $scope) {
 		ctrl.tmp = angular.copy(ctrl.media);
 	};
 	
-    this.ajoutEmprunt = function(callback) {
+    this.ajoutEmprunt = function() {
         /*
         id->get
         date retour -> calcul
@@ -53,7 +53,9 @@ app.controller('mediaController', function ($http, $routeParams, $scope) {
             ctrl.emprunt.retour = dateRetour;
 			
             ctrl.media.emprunteurs.push(angular.copy(ctrl.emprunt)); //ajout à la liste des emprunteurs
-            callback();
+			
+			$('#ajoutEmprunteur').modal('hide');
+			$('#ajoutEmprunteurForm')[0].reset();
         }
     }
 	

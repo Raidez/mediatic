@@ -10,9 +10,7 @@
                     </button>
                     <h4 class="modal-title" id="nouveauEmprunteurModalLabel">Ajout d'un emprunteur</h4>
                 </div>
-				
-				<form class="form-horizontal">
-				
+				<form id="ajoutEmprunteurForm" class="form-horizontal" ng-submit="ctrl.ajoutEmprunt()">
                 <div class="modal-body">
                     
 					
@@ -38,12 +36,10 @@
 							</div>
 						</div>
 					
-					
-					
                 </div>
                 <div class="modal-footer">
-                    <button type="reset" class="btn btn-danger" data-dismiss="modal">Annuler</button>
-                    <button type="submit" class="btn btn-primary" data-dismiss="" ng-click="ctrl.ajoutEmprunt($close)">Enregistrer</button>
+                    <button type="reset" class="btn btn-danger" onclick="$('#ajoutEmprunteur').modal('hide');">Annuler</button>
+                    <button type="submit" class="btn btn-primary">Enregistrer</button>
                 </div>
 				
 				</form>

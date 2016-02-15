@@ -20,7 +20,7 @@
   "scripts": {
 	  "npm": "npm install",
 	  "bower": "bower install",
-	  "net": "http-server app/ - localhost -p 8000 -o",
+	  "net": "http-server app/ -a localhost -p 8000 -o",
 	  
 	  
     "postinstall": "bower install",
