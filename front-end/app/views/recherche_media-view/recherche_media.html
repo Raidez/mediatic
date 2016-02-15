@@ -112,14 +112,14 @@
                         <div class="form-group">
                             <label for="titre" class="col-sm-2 control-label">Titre*</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="titre" placeholder="Titre" required>
+                                <input type="text" class="form-control" id="titre" placeholder="Titre" required ng-model="ctrl.media.titre">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="type" class="col-sm-2 control-label">Type*</label>
                             <div class="col-sm-10">
-                                <select class="form-control" id="type" required>
+                                <select class="form-control" id="type" required ng-model="ctrl.media.type">
                                     <option>Livre</option>
                                     <option>CD</option>
                                     <option>DVD</option>
@@ -130,15 +130,7 @@
                         <div class="form-group">
                             <label for="auteur" class="col-sm-2 control-label">Auteur*</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="auteur" placeholder="Auteur" required>
-                            </div>
-                        </div>
-
-                        <!-- à supprimer -->
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-default">test formulaire
-                                </button>
+                                <input type="text" class="form-control" id="auteur" placeholder="Auteur" required ng-model="ctrl.media.auteur">
                             </div>
                         </div>
 
@@ -146,7 +138,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                    <button type="button" class="btn btn-primary">Enregistrer</button>
+                    <button type="button" class="btn btn-primary" ng-click="ctrl.ajoutMedia()">Enregistrer</button>
                 </div>
             </div>
         </div>
