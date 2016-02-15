@@ -7,11 +7,12 @@ app.config(function ($routeProvider, $httpProvider) {
         templateUrl: 'views/media-view/media.html',
         controller: 'mediaController'
     });
-    $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF8';
+   
 });
 
 app.controller('mediaController', function ($http, $routeParams, serviceMedia) {
     var ctrl = this;
+    
 	/**
 	 * utilisé pour temporiser la modification
 	 * (cela permet d'enregistrer les modifications de média
@@ -44,21 +45,24 @@ app.controller('mediaController', function ($http, $routeParams, serviceMedia) {
     this.sendPOST = function () {
         serviceMedia.postModif(ctrl.media);
     };
-
+    
+    // fonction de creation de nouveau emprunteur
     this.ajoutEmprunt = function () {
         if (ctrl.media) {
-            ctrl.emprunt.adherent.id = ctrl.media.emprunteurs[ctrl.media.emprunteurs.length - 1].adherent.id + 1; //TODO: côté serveur
+            ctrl.emprunt.adherent.id = ctrl.media.emprunteurs[ctrl.media.emprunteurs.length - 1].adherent.id + 1; //calcul de l'id du nouveau emprunteur
            
             //calcul de la date retour selon le type de média
             var dateRetour = new Date(ctrl.emprunt.depart);
-            if (ctrl.media.type == 'Livre') {
+            if (ctrl.media.type == 'Livre')
                 dateRetour.setDate(dateRetour.getDate() + 30);
+            else
                 dateRetour.setDate(dateRetour.getDate() + 15);
-            }
+                
             ctrl.emprunt.retour = dateRetour;
 
             ctrl.media.emprunteurs.push(angular.copy(ctrl.emprunt)); //ajout à la liste des emprunteurs
 			
+            // cache et reset la modal
             $('#ajoutEmprunteur').modal('hide');
             $('#ajoutEmprunteurForm')[0].reset();
 
@@ -67,11 +71,8 @@ app.controller('mediaController', function ($http, $routeParams, serviceMedia) {
     };
 
     //	loader zone
-  
     serviceMedia.getMedia($routeParams.id).then(function (data) {
         ctrl.media = data;
         ctrl.refreshTmp();
     });
-
-
 });

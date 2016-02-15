@@ -1,5 +1,3 @@
-
-
 'use strict';
 
 var app = angular.module('rechercheMedia', ['ngRoute','serviceMedia']);
@@ -33,7 +31,8 @@ app.controller('rechercheController', function ($http, $location, serviceMedia) 
         else
             ctrl.trie.order.reverse = true;
     };
-
+    
+    // filtre avec temporisation
     this.filter = function () {
         ctrl.trie.filter = angular.copy(ctrl.trie.tmpFilter);
     };
@@ -48,9 +47,6 @@ app.controller('rechercheController', function ($http, $location, serviceMedia) 
     serviceMedia.getList().then(function (data) {
         ctrl.listeMedia = data;
     });
-
     ctrl.trie.order.libelle = 'titre';
     ctrl.trie.order.reverse = false;
-
 });
-
