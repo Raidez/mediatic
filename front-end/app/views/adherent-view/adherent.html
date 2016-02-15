@@ -1,0 +1,252 @@
+<!--<section >
+    <h3>Informations générales</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td>Nom</td><td>{{adherentCtrl.mockAdherent.nom}}</td>
+            </tr>
+            <tr>
+                <td>Prénom</td><td>{{adherentCtrl.mockAdherent.prenom}}</td>
+            </tr>
+            <tr>
+                <td>Date de naissance</td><td>{{adherentCtrl.mockAdherent.date_naissance | dateFormater}}</td>
+            </tr>
+            <tr>
+                <td>Age</td><td>{{adherentCtrl.mockAdherent.age}}</td>
+            </tr>            
+            <tr>
+                <td>E-mail</td><td>{{adherentCtrl.mockAdherent.email}}</td>
+            </tr>
+            <tr>
+                <td>adresse</td>
+                <td>{{adherentCtrl.mockAdherent.adresse.ligne1}} <br/>
+                 {{adherentCtrl.mockAdherent.adresse.ligne2}} <br/>
+                 {{adherentCtrl.mockAdherent.adresse.codepostal}}</td>
+            </tr>
+            <tr>
+                <td>Ville</td><td>{{adherentCtrl.mockAdherent.adresse.ville}}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3>Cotisation</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td> début</td><td>{{adherentCtrl.mockAdherent.cotisation.debut}}</td>
+                <td> fin</td><td>{{adherentCtrl.mockAdherent.cotisation.fin}}</td>
+                 <td>Montant</td><td>{{adherentCtrl.mockAdherent.cotisation.montant | currency}}</td>
+            </tr>
+        </tbody>
+    </table>
+    
+</section>-->
+
+
+
+<section id="contenu" class="container-fluid">
+		<form id="form_adh" class="form-horizontal col-xs-12 col-sm-10 col-sm-offset-1 col-md-12 col-md-offset-0">
+			<fieldset >
+				<legend>Information générale</legend>
+				<div class="col-md-8">
+				<div class="col-md-4">
+				<div class="input-group">
+					<span class="input-group-addon ">Nom</span>
+					<p class="form-control ">{{adherentCtrl.mockAdherent.nom}}</p>
+				</div>
+				</div>
+				<div class="col-md-4">
+				<div class="input-group">
+					<span class="input-group-addon">Prénom</span>
+					<p class="form-control">{{adherentCtrl.mockAdherent.prenom}}</p>
+				</div>
+				</div>
+					
+				<div class="col-md-4">
+				<div class="input-group">
+					<span class="input-group-addon">E-mail</span>
+					<p class="form-control">{{adherentCtrl.mockAdherent.email}}</p>
+					</div>
+					</div>
+				</div>
+				<br><br>
+				<div class="col-md-8">
+				<div class="col-md-6">
+				<div class="input-group">
+					<span class="input-group-addon ">Date de naissance</span>
+					<p class="form-control ">{{adherentCtrl.mockAdherent.date_naissance | dateFormater}}</p>
+				</div>
+				</div>
+				<div class="col-md-6">
+				<div class="input-group">
+					<span class="input-group-addon">age</span>
+					<p class="form-control">{{adherentCtrl.mockAdherent.age}}</p>
+				</div>
+				</div>
+					
+				<div class="col-md-6">
+				<div class="input-group">
+					<span class="input-group-addon">Adresse</span>
+					<p class="form-control">{{adherentCtrl.mockAdherent.adresse.ligne1}}
+                 {{adherentCtrl.mockAdherent.adresse.ligne2}}  
+                 {{adherentCtrl.mockAdherent.adresse.codepostal}}
+                 {{adherentCtrl.mockAdherent.adresse.ville}}
+            </p>
+					</div>
+					</div>
+				</div>
+				<br><br>
+				
+			</fieldset>
+			<fieldset class="row" style="margin-top:1em">
+				<legend>Cotisation</legend>
+				<div class="col-md-8">
+				<div class="col-md-4">
+				<div class="input-group">
+					<span class="input-group-addon ">Début</span>
+					<p class="form-control " >{{adherentCtrl.mockAdherent.cotisation.debut}}</p>
+				</div>
+				</div>
+				<div class="col-md-4">
+				<div class="input-group">
+					<p class="form-control">{{adherentCtrl.mockAdherent.cotisation.montant}}</p>
+					<span class="input-group-addon"><span class="glyphicon glyphicon-euro"></span></span>
+				</div>
+				</div>
+					
+				<div class="col-md-4">
+				<div class="input-group">
+					<span class="input-group-addon">Fin</span>
+					<p class="form-control">{{adherentCtrl.mockAdherent.cotisation.fin}}</p>
+					</div>
+					</div>
+				</div>
+		
+			</fieldset>
+			<br>
+			<button type="button" class="btn btn-primary"
+			data-toggle="modal" data-target="#modificationAdherent">Modifier</button>
+			<button type="button" class="btn btn-primary"
+			data-toggle="modal" data-target="#ajoutEmprunt">Ajouter un emprunt</button>
+		</form>
+	</section>
+
+    	<!-- Modal -->
+	<div class="modal fade" id="modificationAdherent" tabindex="-1"
+		role="dialog" aria-labelledby="nouvelAdherentModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+
+
+				<!-- entête de la modale -->
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="nouvelAdherentModalLabel">
+						Modification
+					</h4>
+					
+				</div>
+
+
+				<!-- corps de la modale -->
+				<div class="modal-body">
+					<!-- formulaire à renseigner -->
+					<form class="form-horizontal" id="myForm">
+
+						<div class="form-group">
+							<label for="nom" class="col-sm-2 control-label">Nom*</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="nom"
+									placeholder="Nom" required ng-model="adherentCtrl.formAdherent.nom">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="prenom" class="col-sm-2 control-label">Prénom*</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="prenom"
+									placeholder="Prénom" required ng-model="adherentCtrl.formAdherent.prenom">
+							</div>
+						</div>
+
+						<!--  à modifier avec angular / ui-bootstrap  ne pas oublier required-->
+						<div class="form-group">
+							<label for="dateNaissance" class="col-sm-2 control-label">Date
+								de naissance*</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" id="dateNaissance"
+									placeholder="jj/mm/aaaa" required ng-model="adherentCtrl.formAdherent.date_naissance">
+							</div>
+							<label id="labelAge" class="col-sm-2 control-label"></label>
+						</div>
+
+						<div class="form-group">
+							<label for="email" class="col-sm-2 control-label">Email*</label>
+							<div class="col-sm-10">
+								<input type="email" class="form-control" id="Email"
+									placeholder="Email" required ng-model="adherentCtrl.formAdherent.email">
+							</div>
+						</div>
+
+						<hr style="border-color: darkgrey;">
+
+						<div class="form-group">
+							<label for="adresse" class="col-sm-2 control-label">Adresse</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="adresse"
+									placeholder="Adresse" ng-model="adherentCtrl.formAdherent.adresse.ligne1">
+							</div>
+						</div>
+
+						<div class="form-group">
+
+							<div class="col-sm-3 col-sm-offset-2">
+								<input type="text" class="form-control" id="codePostal"
+									placeholder="Code postal" ng-model="adherentCtrl.formAdherent.adresse.codepostal">
+							</div>
+							<div class="col-sm-7">
+								<input type="text" class="form-control" id="ville"
+									placeholder="Ville" ng-model="adherentCtrl.formAdherent.adresse.ville">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="montantCotisation" class="col-sm-2 control-label">Cotisation</label>
+
+							<div class="col-sm-10">
+								<div class="input-group">
+									<div class="input-group-addon ">€</div>
+									<input type="text" class="form-control " id="montantCotisation"
+										placeholder="Montant" ng-model="adherentCtrl.formAdherent.cotisation.montant">
+									<div class="input-group-addon ">.00</div>
+								</div>
+							</div>
+
+						</div>
+
+						<!--  à modifier avec angular / ui-bootstrap  ne pas oublier required-->
+						<div class="form-group">
+							<label for="datePaiement" class="col-sm-2 control-label">Date
+								de paiement</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="datePaiement"
+									placeholder="jj/mm/aaaa" ng-model="adherentCtrl.formAdherent.cotisation.debut">
+							</div>
+						</div>
+						<!-- à modifier après backend -->
+						<div class="form-group">
+							<label data-toggle="tooltip" data-placement="bottom" title="à titre indicatif" id="labelFinAbonnement" class="hidden col-sm-6 col-sm-offset-6 control-label"></label>
+						</div>
+
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="adherentCtrl.resetForm()">Annuler</button>
+					<button type="button" class="btn btn-primary" id="enregistrerButton" data-dismiss="modal" ng-click="adherentCtrl.saveForm()">Enregistrer</button>
+				</div>
+			</div>
+		</div>
+	</div>
