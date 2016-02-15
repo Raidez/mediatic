@@ -85,14 +85,14 @@
 						<div class="form-group">
 							<label for="titre" class="col-sm-2 control-label">Titre*</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="titre" placeholder="Titre" required ng-model="ctrl.tmp.titre">
+								<input type="text" class="form-control" id="titre" placeholder="Titre" required ng-model="ctrl.tmpModifMedia.titre">
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label for="type" class="col-sm-2 control-label">Type*</label>
 							<div class="col-sm-10">
-								<select class="form-control" id="type" required ng-model="ctrl.tmp.type">
+								<select class="form-control" id="type" required ng-model="ctrl.tmpModifMedia.type">
 									<option>Livre</option>
 									<option>CD</option>
 									<option>DVD</option>
@@ -103,7 +103,7 @@
 						<div class="form-group">
 							<label for="auteur" class="col-sm-2 control-label">Auteur*</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="auteur" placeholder="Auteur" required ng-model="ctrl.tmp.auteur">
+								<input type="text" class="form-control" id="auteur" placeholder="Auteur" required ng-model="ctrl.tmpModifMedia.auteur">
 							</div>
 						</div>
 
@@ -112,8 +112,8 @@
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="ctrl.refresh()">Annuler</button>
-					<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="ctrl.modifMedia(); ctrl.save();">Enregistrer</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="ctrl.refreshTmp()">Annuler</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="ctrl.applyModifMedia()">Enregistrer</button>
 				</div>
 			</div>
 		</div>
