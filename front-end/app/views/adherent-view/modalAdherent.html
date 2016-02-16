@@ -1,0 +1,122 @@
+<!-- Modal -->
+<div class="modal fade" id="modificationAdherent" tabindex="-1"
+	role="dialog" aria-labelledby="nouvelAdherentModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+
+            <!-- entête de la modale -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                    aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="nouvelAdherentModalLabel">
+                    Modification
+                </h4>
+                
+            </div>
+
+
+            <!-- corps de la modale -->
+            <div class="modal-body">
+                <!-- formulaire à renseigner -->
+                <form class="form-horizontal" id="myForm">
+
+                    <div class="form-group">
+                        <label for="nom" class="col-sm-2 control-label">Nom*</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="nom"
+                                placeholder="Nom" required ng-model="adherentCtrl.formAdherent.nom">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="prenom" class="col-sm-2 control-label">Prénom*</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="prenom"
+                                placeholder="Prénom" required ng-model="adherentCtrl.formAdherent.prenom">
+                        </div>
+                    </div>
+
+                    <!--  à modifier avec angular / ui-bootstrap  ne pas oublier required-->
+                    <div class="form-group">
+                        <label for="dateNaissance" class="col-sm-2 control-label">Date
+                            de naissance*</label>
+                        <div class="col-sm-10">
+                              
+                                   <my-date-picker ng-model="adherentCtrl.formAdherent.date_naissance"></my-date-picker>
+                                        
+                                 
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="col-sm-2 control-label">Email*</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="Email"
+                                placeholder="Email" required ng-model="adherentCtrl.formAdherent.email">
+                        </div>
+                    </div>
+
+                    <hr style="border-color: darkgrey;">
+
+                    <div class="form-group">
+                        <label for="adresse" class="col-sm-2 control-label">Adresse</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="adresse"
+                                placeholder="Adresse" ng-model="adherentCtrl.formAdherent.adresse.ligne1">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+
+                        <div class="col-sm-3 col-sm-offset-2">
+                            <input type="text" class="form-control" id="codePostal"
+                                placeholder="Code postal" ng-model="adherentCtrl.formAdherent.adresse.codepostal">
+                        </div>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control" id="ville"
+                                placeholder="Ville" ng-model="adherentCtrl.formAdherent.adresse.ville">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="montantCotisation" class="col-sm-2 control-label">Cotisation</label>
+
+                        <div class="col-sm-10">
+                            <div class="input-group">
+                                <div class="input-group-addon ">€</div>
+                                <input type="text" class="form-control " id="montantCotisation"
+                                    placeholder="Montant" ng-model="adherentCtrl.formAdherent.cotisation.montant">
+                                <div class="input-group-addon ">.00</div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!--  à modifier avec angular / ui-bootstrap  ne pas oublier required-->
+                    <div class="form-group">
+                        <label for="datePaiement" class="col-sm-2 control-label">Date
+                            de paiement</label>
+                        <div class="col-sm-10">
+                              
+                                   <my-date-picker ng-model="adherentCtrl.formAdherent.cotisation.debut"></my-date-picker>
+                                        
+                                 
+                        </div>
+                    </div>
+                    <!-- à modifier après backend -->
+                    <div class="form-group">
+                        <label data-toggle="tooltip" data-placement="bottom" title="à titre indicatif" id="labelFinAbonnement" class="hidden col-sm-6 col-sm-offset-6 control-label"></label>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="adherentCtrl.resetForm()">Annuler</button>
+                <button type="button" class="btn btn-primary" id="enregistrerButton" data-dismiss="modal" ng-click="adherentCtrl.saveForm()">Enregistrer</button>
+            </div>
+        </div>
+        </div>
+</div>

@@ -3,7 +3,7 @@
 
 'use strict';
 (function (){
-    angular.module('app', ['ngRoute' , 'app.adherentService' ,  'app.adherent', 'app.login', 'app.loginService' , 'app.filters']).
+    angular.module('app', ['ngRoute','ui.bootstrap','ngCookies' , 'app.adherentService' ,  'app.adherent', 'app.navbar', 'app.login', 'app.loginService' , 'app.filters','app.myDatePicker']).
     config(function ($routeProvider, $httpProvider) {
         $routeProvider.otherwise({
             redirectTo: '/login'

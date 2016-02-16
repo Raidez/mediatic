@@ -1,0 +1,20 @@
+body, h1, h2, h3, h4, h5, h6 {
+	font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: 700;
+}	
+
+/** Style de la navbar **/
+.navbar{
+	background: url(../images/biblio03.jpg) no-repeat center center;
+	background-size: cover;
+	opacity: 1;
+}
+.navbar * {
+	opacity: 1;
+}
+
+.main-section {
+    margin-top: 60px;
+}
+
+/** Style de la navbar **/

@@ -11,10 +11,14 @@
 			});
 		})
 		
-		.controller('AdherentController', function($rootScope, $routeParams, adherentService ) {
+		.controller('AdherentController', function($rootScope, $routeParams, $location , adherentService, loginService ) {
 			var adherentCtrl = this;
             adherentCtrl.id=$routeParams.id;
             adherentCtrl.mockAdherent={};
+            
+            if(!loginService.authenticated()) {
+                $location.url('/login');
+            }
             
             
             $rootScope.pageTitle = "description adhérent";
@@ -31,11 +35,10 @@
                 adherentService.updateAdherent( adherentCtrl.formAdherent.id,  adherentCtrl.formAdherent).then(function (data) {
                     adherentCtrl.mockAdherent=data;
                     adherentCtrl.formAdherent = angular.copy(data);
-                    console.log("success modif adherent");
                 })
             };
 			
-		})
+		});
 
 	
 })();

@@ -1,0 +1,41 @@
+
+<header ng-controller="NavbarController as navbarCtrl">
+<div id="navbar">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <!-- Definition du bouton pours sm-->
+                <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#corps-navbar"
+                    aria-expanded="false">
+                    <!--  cette portion pour le bouton de ce qui collapse -->
+                    <span class="sr-only">Toggle navigation</span> <span
+                        class="icon-bar"></span> <span class="icon-bar"></span> <span
+                        class="icon-bar"></span>
+                </button>
+                <!-- titre de gauche -->
+                <a class="navbar-brand" href="">Mediatic</a>
+                <p class="navbar-text visible-xs">Nom Utilisateur</p>
+            </div>
+
+            <!-- corps de la navbar, destiné à collapse -->
+            <div class="collapse navbar-collapse" id="corps-navbar">
+                <!-- listes boutons de gauche -->
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="">Média<span
+                            class="sr-only">(current)</span> <!-- indique la page active --></a></li>
+                    <li><a href="">Adhérents</a></li>
+                </ul>
+
+                <!-- listes boutons de droite -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="visible-sm visible-md visible-lg"><p
+                            class="navbar-text">Nom Utilisateur</p></li>
+                    <li><a href="" ng-click="navbarCtrl.signOut()">Déconnexion</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+</header>
