@@ -40,7 +40,7 @@
 					<button type="button" class="btn btn-primary" ng-click="ctrl.filter()">Rechercher</button>
 					<button type="button" class="btn btn-success" data-toggle="modal" data-target="#nouveauMedia">Nouveau</button>
 					
-					<button type="reset" class="btn btn-default">Effacer la recherche</button>
+					<button type="reset" class="btn btn-default" ng-click="ctrl.trie.tmpFilter = {}; ctrl.filter();">Effacer la recherche</button>
 				</div>
 			</form>
 		</div>
