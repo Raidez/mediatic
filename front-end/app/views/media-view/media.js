@@ -71,7 +71,7 @@ app.controller('mediaController', function ($http, $routeParams, serviceMedia) {
     };
 
     //	loader zone
-    serviceMedia.getMedia($routeParams.id).then(function (data) {
+    serviceMedia.getMedia($routeParams.id, false).then(function (data) {
         ctrl.media = data;
         ctrl.refreshTmp();
     });

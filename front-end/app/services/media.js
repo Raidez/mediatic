@@ -3,47 +3,83 @@
 var app = angular.module('serviceMedia', ['ngRoute']);
 
 app.factory('serviceMedia', function ($http) {
-    var urlGet = "http://192.168.1.14:8080/resource/media.recherche";
-    var promise = $http.get(urlGet).then(function (res) {
+
+	var url = {
+		get : {
+			listeMedia: 'http://192.168.1.14:8080/resource/media.recherche',
+			media: 'http://192.168.1.14:8080/resource/media.accession',
+			listeAdherent: 'http://192.168.1.14:8080/resource/adherent.recherche'
+		},
+		post: {
+			creationMedia: 'http://192.168.1.14:8080/resource/media.creation',
+			modificationMedia: 'http://192.168.1.14:8080/resource/media.modification'
+		}
+	};
+	
+	var promiseListMedia = $http.get(url.get.listeMedia).then(function (res) {
         return res.data;
     });
-
-    var urlPostCrea = "http://192.168.1.14:8080/resource/media.creation";
-    var urlPostModif = "http://192.168.1.14:8080/resource/media.modification";
-
+	
     return {
-        //initialise les parametres non utilisé
-        serialize: function (media) {
-            media.adherent = media.adherents = media.retour = null;
+		// renvoie la liste de media (promesse)
+        getList: function () {
+            return promiseListMedia;
         },
+		//renvoie une fiche media (sans requete serveur)
+        getMedia: function (id, useGet) {
+			if(useGet)  {
+				return $http.get(url.get.media, { params: {id: id} }).then(function(res) {
+					return res.data;
+				});
+			}
+			else {
+				return promiseListMedia.then(function (list) {
+					for (var i = 0; i < list.length; i++) {
+						var elm = list[i];
+						if (elm.id == id) {
+							return elm;
+						}
+
+					}
+					throw "Not found";
+				});
+			}
+        },
+		getAdherentBy: function(type, query) {
+			if(type == 'nom') {
+				//////
+				return $http.get(url.get.listeAdherent, { params: {nom: query} }).then(function(res) {
+					return res.data;
+				});
+			}
+			else if(type == 'prenom') {
+				return $http.get(url.get.listeAdherent, { params: {prenom: query} }).then(function(res) {
+					return res.data;
+				});
+			}
+			else {
+				return $http.get(url.get.listeAdherent, { params: {nom: query, prenom: query} }).then(function(res) {
+					return res.data;
+				});
+			}
+		},
+		///////////////////////////////////////////////////////////////////////
         // ajoute un media via la POST
         postMedia: function (media) {
-            $http.post(urlPostCrea, media).success(function () {
+            $http.post(url.post.creationMedia, media).success(function () {
                 console.log("ok!!");
             });
         },
         // modifie un media via la POST (sans payer un timbre)
         postModif: function (media) {
-            $http.post(urlPostModif, media).success(function () {
+            $http.post(url.post.modificationMedia, media).success(function () {
                 console.log("ok!!");
             });
         },
-        // renvoie la liste de media (promesse)
-        getList: function () {
-            return promise;
-        },
-        //renvoie une fiche media (sans requete serveur)
-        getMedia: function (id) {
-            return promise.then(function (list) {
-                for (var i = 0; i < list.length; i++) {
-                    var elm = list[i];
-                    if (elm.id == id) {
-                        return elm;
-                    }
-
-                }
-                throw "Not found";
-            });
+		/////////////////////////////////////////////////////////////////////////////////
+		//initialise les parametres non utilisé
+        serialize: function (media) {
+            media.adherent = media.adherents = media.retour = null;
         }
     }
 });
