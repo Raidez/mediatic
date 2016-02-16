@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('rechercheMedia', ['ngRoute','serviceMedia']);
+var app = angular.module('rechercheMedia', ['ngRoute', 'serviceMedia']);
 
 app.config(function ($routeProvider) {
     $routeProvider.when('/media', {
@@ -41,6 +41,11 @@ app.controller('rechercheController', function ($http, $location, serviceMedia) 
     this.ajoutMedia = function () {
         serviceMedia.serialize(ctrl.media);
         serviceMedia.postMedia(ctrl.media);
+		ctrl.listeMedia.push(ctrl.media);
+		
+		// cache et reset la modal
+		$('#nouveauMedia').modal('hide');
+		$('#nouveauMediaForm')[0].reset();
     };
     
     // loader zone
