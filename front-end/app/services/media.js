@@ -28,13 +28,24 @@ app.factory('serviceMedia', function ($http) {
             return promiseListMedia;
         },
 		// renvoie la liste de media paginé
-        getListPagine: function (page) {
+        getListPagine: function (page, filter) {
 			if(page == undefined)
 				page = 0;
-			
-			return $http.get(url.get.listeMedia, { params: { page: page }}).then(function (res) {
-				return res.data;
-			});
+            if(filter == undefined) {
+                return $http.get(url.get.listeMedia, { params: { page: page }}).then(function (res) {
+                    return res.data;
+                });
+            }
+            else {
+                return $http.get(url.get.listeMedia, { params: {
+                    page: page,
+                    titre: filter.titre,
+                    auteur: filter.auteur,
+                    type: filter.type
+                }}).then(function (res) {
+                    return res.data;
+                });
+            }
         },
 		// renvoie le nb de page de média
 		getNbPage: function() {

@@ -71,7 +71,7 @@ app.controller('rechercheController', function ($http, $location, serviceMedia) 
 			ctrl._pages.push(i+1);
 		}
 	});
-    serviceMedia.getListPagine(ctrl.pageActuelle).then(function (data) {
+    serviceMedia.getListPagine(ctrl.pageActuelle, ctrl.trie.filter).then(function (data) {
         ctrl.listeMedia = data;
     });
     ctrl.trie.order.libelle = 'titre';
