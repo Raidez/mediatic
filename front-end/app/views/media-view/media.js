@@ -5,7 +5,8 @@ var app = angular.module('media', ['ngRoute']);
 app.config(function ($routeProvider, $httpProvider) {
     $routeProvider.when('/media/:id', {
         templateUrl: 'views/media-view/media.html',
-        controller: 'mediaController'
+        controller: 'mediaController',
+		controllerAs: 'ctrl'
     });
    
 });
