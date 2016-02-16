@@ -7,7 +7,6 @@
             var provider=this;
             return {
                 getAdherent: function(adherent_id){
-                    //à modifier avec vrai backend
                     var service = this;
                     return $http.get(provider.baseUrl + '.accession', {params:{id: adherent_id}})
                         .then(function(response){
@@ -26,9 +25,9 @@
                 },
                 serverToClientObj: function(serverObj) {
                     var clientObj=angular.copy(serverObj);
-                    clientObj.date_naissance=new Date(clientObj.date_naissance);
-                    clientObj.cotisation.debut=new Date(clientObj.cotisation.debut);
-                    clientObj.cotisation.fin=new Date(clientObj.cotisation.fin);
+                    clientObj.date_naissance=moment(clientObj.date_naissance).toDate();
+                    clientObj.cotisation.debut=moment(clientObj.cotisation.debut).toDate();
+                    clientObj.cotisation.fin=moment(clientObj.cotisation.fin).toDate();
                     return clientObj;
                 },
                 
@@ -38,7 +37,25 @@
                     serverObj.cotisation.debut=$filter('date')(serverObj.cotisation.debut,'yyyy-MM-dd');
                     serverObj.cotisation.fin=$filter('date')(serverObj.cotisation.fin,'yyyy-MM-dd');
                     return serverObj;
-                }
+                },
+                
+                getAdherents: function(page,reqParams) {
+                    var service = this;
+                    reqParams?reqParams:{};
+                    reqParams.page=page;
+                    return $http.get(provider.baseUrl + '.recherche', {params:reqParams})
+                        .then(function(response){
+                            return response.data;
+                        });
+                },
+                getTaille: function(reqParams) {
+                    var service = this;
+                    return $http.get(provider.baseUrl + '.recherche.taille', {params:reqParams})
+                        .then(function(response){
+                            return response.data;
+                        });
+                },
+                
                 
             };
         }

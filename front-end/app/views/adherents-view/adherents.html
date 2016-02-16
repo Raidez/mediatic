@@ -1,0 +1,35 @@
+<mediatic-navbar></mediatic-navbar>
+
+<section id="recherche-adherents" class="container-fluid main-section">
+    <form class="form-inline" ng-submit="adherentsCtrl.sendSearch()">
+        <div class="form-group" >
+            <label for="nom">Nom</label>
+            <input type="text" class="form-control" id="nom" placeholder="Nom" 
+             ng-model="adherentsCtrl.search.nom">
+        </div>
+        <div class="form-group">
+            <label for="identifiant">Identifiant</label>
+            <input type="number" class="form-control" id="identifiant" placeholder="12345"
+             ng-model="adherentsCtrl.search.id" min=1>
+        </div>
+        <button type="submit" class="btn btn-default">Rechercher</button>
+    </form>
+    <table class= "table">
+        <thead>
+            <tr>
+                <th>Nom</th><th>Prénom</th><th>Date de naissance</th><th>cotisation</th><th>Nombre d'emprunts</th>      
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="adherent in adherentsCtrl.resultList">
+                <td>{{adherent.nom}}</td>
+                <td>{{adherent.prenom}}</td>
+                <td>{{adherent.date_naissance|dateFormater}}</td>
+                <td>{{adherent.cotisation.debut|dateFormater}}</td>
+                <td>{{adherent.nombre_media}}</td>
+            </tr>
+        </tbody>        
+    </table>
+    
+    
+</section>    

@@ -2,10 +2,33 @@
 (function() {
     	angular.module('app.filters', []).filter('dateFormater', function($filter){
             return function (date) {
-                var dateResult = new Date(date);
-                var result = '';
-                result+= dateResult.getDate() + '/' + (dateResult.getMonth()+1)+ '/' + dateResult.getFullYear();
-                return result;
+                return moment(date).format('DD/MM/YYYY');
+            }
+            
+            
+            
+        }).filter('afterToday', function($filter) {
+            return function (table, field) {
+               if(table===undefined) {
+                   return table;
+               } else {
+                   return table.filter(function(item){
+                       return moment(item[field]).isAfter(moment(),'day');
+                   });
+               }
+            }
+            
+            
+            
+        }).filter('beforeToday', function($filter) {
+            return function (table, field) {
+               if(table===undefined) {
+                   return table;
+               } else {
+                   return table.filter(function(item){
+                       return moment(item[field]).isSameOrBefore(moment(),'day');
+                   });
+               }
             }
             
             

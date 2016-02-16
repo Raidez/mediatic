@@ -1,0 +1,58 @@
+<div class="row spaced-row">
+    <div class="col-xs-12">
+        <button type="button" class="btn btn-default" ng-click="adherentCtrl.currentLoansCollapse = !adherentCtrl.currentLoansCollapse">Emprunts en cours</button>
+        <hr>
+        <div uib-collapse="adherentCtrl.currentLoansCollapse">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Titre</th> <th>Départ</th> <th>Retour</th>
+                    </tr> 
+
+                </thead>
+                
+                <tbody>
+                <tr ng-repeat="loan in adherentCtrl.mockAdherent.emprunt|
+                afterToday: 'retour'">
+                    <td>{{loan.media.titre}}</td>
+                    <td>{{loan.depart | dateFormater}}</td>
+                    <td>{{loan.retour | dateFormater}}</td>
+                    <td><button type="button" class="btn btn-default" ng-click="adherentCtrl.returnMedia(loan)">retour</button></td>
+                </tr>   
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="row spaced-row">
+    <div class="col-xs-12">
+        <button type="button" class="btn btn-default" ng-click="adherentCtrl.previousLoansCollapse = !adherentCtrl.previousLoansCollapse">Emprunts rendus</button>
+        <hr>
+        <div uib-collapse="adherentCtrl.previousLoansCollapse">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Titre</th> <th>Départ</th> <th>Retour</th>
+                    </tr> 
+
+                </thead>
+                
+                <tbody>
+                <tr ng-repeat="loan in adherentCtrl.mockAdherent.emprunt|
+                beforeToday: 'retour'">
+                    <td>{{loan.media.titre}}</td>
+                    <td>{{loan.depart | dateFormater}}</td>
+                    <td>{{loan.retour | dateFormater}}</td>
+                </tr>   
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+   
+
+ 
+  

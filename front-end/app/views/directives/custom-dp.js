@@ -5,7 +5,6 @@
 		.controller('MyDatePickerController', function($scope) {
 			var myDatePickerCtrl = this;
             
-            $scope.date = new Date();
         
         
             $scope.datePicker={opened:false};
