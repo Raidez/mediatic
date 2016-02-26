@@ -1,12 +1,22 @@
-package models;
+package fr.iocean.application.media.model;
 
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import fr.iocean.application.loan.model.Loan;
+import fr.iocean.application.util.persistence.IoEntity;
 
 @Entity
 @Table(name= "media")
-public abstract class Media {
+public class Media implements IoEntity {
 	// attr
 	@Id
 	@GeneratedValue
@@ -25,8 +35,16 @@ public abstract class Media {
 	//TODO
 	//private Loan currentLoan; utiliser @Formula
 
+	public List<Loan> getLoanList() {
+		return loanList;
+	}
+
+	public void setLoanList(List<Loan> loanList) {
+		this.loanList = loanList;
+	}
+
 	// get
-	public Long getID() {
+	public Long getId() {
 		return this.id;
 	}
 
@@ -49,6 +67,10 @@ public abstract class Media {
 
 	public void setAuthor(String author) {
 		this.author = author;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	// constr
