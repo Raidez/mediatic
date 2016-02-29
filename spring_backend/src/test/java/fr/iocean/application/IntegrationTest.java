@@ -11,6 +11,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import fr.iocean.application.FilRougeApplication;
 import fr.iocean.application.helper.JsonHelper;
 
 @RunWith(SpringJUnit4ClassRunner.class)

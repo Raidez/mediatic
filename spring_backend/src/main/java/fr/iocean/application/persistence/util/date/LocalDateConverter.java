@@ -1,7 +1,8 @@
-package util.datesManagement;
+package fr.iocean.application.persistence.util.date;
 
-import java.time.LocalDate;
 import java.sql.Date;
+import java.time.LocalDate;
+
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
