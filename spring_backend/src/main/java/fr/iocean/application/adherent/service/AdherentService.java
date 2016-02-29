@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import fr.iocean.application.adherent.model.Adherent;
+import fr.iocean.application.adherent.model.AdherentColumns;
 import fr.iocean.application.adherent.repository.AdherentRepository;
 import fr.iocean.application.exception.NotFoundException;
 
@@ -26,7 +27,12 @@ public class AdherentService {
 
 	@Transactional(readOnly=true)
 	public List<Adherent> findAll() {
-		return adherentRepository.findAll();
+		return findAll(AdherentColumns.name,true);
+	}
+	
+	@Transactional(readOnly=true)
+	public List<Adherent> findAll(AdherentColumns sort, boolean asc) {
+		return adherentRepository.findAll(sort, asc);
 	}
 	
 	@Transactional(readOnly=true)
@@ -40,6 +46,15 @@ public class AdherentService {
 	
 	public void delete(Long id) throws NotFoundException{
 		adherentRepository.delete(id);
+	}
+	
+	
+	public List<Adherent> findByName(String name, AdherentColumns sort, Boolean asc) {
+		return adherentRepository.findByName(name,sort,asc);
+	}
+	
+	public List<Adherent> findById(Long id) {
+		return adherentRepository.findById(id);
 	}
 	
 }
