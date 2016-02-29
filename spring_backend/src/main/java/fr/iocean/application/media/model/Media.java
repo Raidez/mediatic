@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -15,7 +16,7 @@ import fr.iocean.application.loan.model.Loan;
 import fr.iocean.application.util.persistence.IoEntity;
 
 @Entity
-@Table(name= "media")
+@Table(name = "media")
 public class Media implements IoEntity {
 	// attr
 	@Id
@@ -28,12 +29,16 @@ public class Media implements IoEntity {
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
 	private TypeMedia type;
-	
-	@OneToMany(mappedBy = "media")
+
+	public void setType(TypeMedia type) {
+		this.type = type;
+	}
+
+	@OneToMany(mappedBy = "media", fetch = FetchType.EAGER)
 	private List<Loan> loanList;
-	
-	//TODO
-	//private Loan currentLoan; utiliser @Formula
+
+	// TODO
+	// private Loan currentLoan; utiliser @Formula
 
 	public List<Loan> getLoanList() {
 		return loanList;
@@ -68,7 +73,7 @@ public class Media implements IoEntity {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}

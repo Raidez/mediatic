@@ -21,19 +21,11 @@ public class MediaService implements IMedia {
 	}
 
 	@Override
-	public List<Media> getByTitle(String title) {
-		return mr.getByTitle(title);
+	public List<Media> getBy(String title, String author, TypeMedia type) {
+		return mr.getBy(title, author, type);
 	}
 
-	@Override
-	public List<Media> getByAuthor(String author) {
-		return mr.getByAuthor(author);
-	}
 
-	@Override
-	public List<Media> getByType(TypeMedia media) {
-		return mr.getByType(media);
-	}
 
 	@Override
 	public Media insert(Media newMedia) {

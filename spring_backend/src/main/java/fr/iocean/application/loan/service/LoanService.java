@@ -12,7 +12,7 @@ import fr.iocean.application.media.model.Media;
 @Service
 public class LoanService implements ILoan {
 
-	@Autowired
+	//@Autowired
 	private LoanRepository lr;
 
 	@Override

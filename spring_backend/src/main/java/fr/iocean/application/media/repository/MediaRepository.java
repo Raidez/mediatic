@@ -6,6 +6,7 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 import fr.iocean.application.media.model.Media;
 import fr.iocean.application.media.model.TypeMedia;
@@ -21,22 +22,17 @@ public class MediaRepository extends AbstractJpaRepository<Media> implements IMe
 	}
 	
 	@Override
-	public List<Media> getByTitle(String title) {
-		Criteria crit = this.getSession().createCriteria(Media.class).add(Restrictions.eq("title", title));
+	public List<Media> getBy(String title, String author, TypeMedia type) {
+		Criteria crit = this.getSession().createCriteria(Media.class);
+		if(! StringUtils.isEmpty(title))
+			crit.add(Restrictions.like("title", "%"+title+"%"));
+		if(! StringUtils.isEmpty(author))
+			crit.add(Restrictions.like("author", "%"+author+"%"));
+		if(! StringUtils.isEmpty(type))
+			crit.add(Restrictions.eq("type", type));
 		return (List<Media>) crit.list();
 	}
 
-	@Override
-	public List<Media> getByAuthor(String author) {
-		Criteria crit = this.getSession().createCriteria(Media.class).add(Restrictions.eq("author", author));
-		return (List<Media>) crit.list();
-	}
-
-	@Override
-	public List<Media> getByType(TypeMedia media) {
-		Criteria crit = this.getSession().createCriteria(Media.class).add(Restrictions.eq("type", media));
-		return (List<Media>) crit.list();
-	}
 
 	@Override
 	public Media insert(Media newMedia) {

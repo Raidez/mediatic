@@ -65,7 +65,7 @@ public class Loan  implements IoEntity{
 
 		switch (this.media.getType()) {
 		default:
-		case Book:
+		case BOOK:
 			dateRetour = this.loanDate.plusDays(30);
 			break;
 		case CD:

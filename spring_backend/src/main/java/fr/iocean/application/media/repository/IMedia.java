@@ -7,9 +7,7 @@ import fr.iocean.application.media.model.TypeMedia;
 
 public interface IMedia {
 	public Media getById(Long id);
-	public List<Media> getByTitle(String title);	//type contient
-	public List<Media> getByAuthor(String author);	//type contient
-	public List<Media> getByType(TypeMedia media);
+	public List<Media> getBy(String title, String author, TypeMedia type);	//type contient
 	public Media insert(Media newMedia);
 	public Media update(Media newMedia);
 	public Media delete(Long id);

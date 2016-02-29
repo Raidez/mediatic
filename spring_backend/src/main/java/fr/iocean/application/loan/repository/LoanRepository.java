@@ -4,12 +4,13 @@ import java.time.LocalDate;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 
 import fr.iocean.application.adherent.model.Adherent;
 import fr.iocean.application.loan.model.Loan;
 import fr.iocean.application.media.model.Media;
 import fr.iocean.application.util.persistence.AbstractJpaRepository;
-
+@Repository
 public class LoanRepository extends AbstractJpaRepository<Loan> implements ILoan  {
 
 	@Override
