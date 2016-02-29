@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import fr.iocean.application.exception.NotFoundException;
 import fr.iocean.application.persistence.GenericEntity;
 
+@Transactional
 public abstract class AbstractJpaRepository <T extends GenericEntity>{
 	
 	@PersistenceContext
@@ -34,7 +35,7 @@ public abstract class AbstractJpaRepository <T extends GenericEntity>{
 		return entityManager.unwrap(Session.class);
 	}
 	
-	@Transactional
+
 	public T save(T entity) {
 		if(isNew(entity)) {
 			entityManager.persist(entity);
@@ -45,18 +46,17 @@ public abstract class AbstractJpaRepository <T extends GenericEntity>{
 		return entity;
 	}
 	
-	@Transactional
+	@Transactional(readOnly=true)
 	public T findOne(long id) {
 		return entityManager.find(entityClass, id);
 	}
 	
 	@SuppressWarnings("unchecked")
-	@Transactional
+	@Transactional(readOnly=true)
 	public List<T> findAll() {
 		return getSession().createCriteria(entityClass).list();
 	}
 	
-	@Transactional
 	public void delete(T entity) {
 		if(!getSession().contains(entity)) {
 			entityManager.remove(getSession().merge(entity));
@@ -66,7 +66,6 @@ public abstract class AbstractJpaRepository <T extends GenericEntity>{
 	}
 	
 	
-	@Transactional
 	public void delete(Long id) throws NotFoundException {
 		T entity = findOne(id);
 		if (entity == null){

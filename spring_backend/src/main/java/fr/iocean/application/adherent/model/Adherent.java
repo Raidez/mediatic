@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -40,6 +41,7 @@ public class Adherent implements GenericEntity{
 	private Date birthDate;
 	@Column(nullable=false)
 	@NotBlank
+	@Email
 	private String email;
 	@Column
 	private String adress;
