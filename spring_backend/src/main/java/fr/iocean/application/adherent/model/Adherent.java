@@ -46,7 +46,7 @@ public class Adherent implements GenericEntity{
 	@Column
 	private String adress;
 	@Column
-	private int postCode;
+	private Integer postCode;
 	@Column
 	private String city;
 	@Column
@@ -132,12 +132,12 @@ public class Adherent implements GenericEntity{
 	}
 
 
-	public int getPostCode() {
+	public Integer getPostCode() {
 		return postCode;
 	}
 
 
-	public void setPostCode(int postCode) {
+	public void setPostCode(Integer postCode) {
 		this.postCode = postCode;
 	}
 
