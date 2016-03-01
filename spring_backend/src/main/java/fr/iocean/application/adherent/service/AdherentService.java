@@ -44,8 +44,8 @@ public class AdherentService {
 		return a;
 	}
 	
-	public void delete(Long id) throws NotFoundException{
-		adherentRepository.delete(id);
+	public Adherent delete(Long id) throws NotFoundException{
+		return adherentRepository.delete(id);
 	}
 	
 	
