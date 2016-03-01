@@ -1,27 +1,32 @@
 package fr.iocean.application.adherent.model;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
-import fr.iocean.application.contribution.model.Contribution;
-import fr.iocean.application.loan.model.Loan;
-import fr.iocean.application.util.dateManagement.DateFormatList;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import fr.iocean.application.persistence.GenericEntity;
+import fr.iocean.application.persistence.util.date.LocalDateConverter2;
+
+
 
 @Entity
 @Table(name="adherent")
-public class Adherent {
+public class Adherent implements GenericEntity{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3108200830137429187L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,21 +38,25 @@ public class Adherent {
 	@NotBlank
 	private String firstName;
 	@Column(nullable=false)
-	private LocalDate birthDate;
+	private Date birthDate;
 	@Column(nullable=false)
 	@NotBlank
+	@Email
 	private String email;
 	@Column
 	private String adress;
 	@Column
-	private int postCode;
+	private Integer postCode;
 	@Column
 	private String city;
-	@OneToOne()
-	private Contribution contribution;
+	@Column
+	private Double amount;
+	@Column
+	private Date payementDate;
 
-	@OneToMany(mappedBy = "adherent")
-	private List<Loan> loanList;
+
+//	@OneToMany(mappedBy = "adherent")
+//	private List<Loan> loanList;
 
 
 
@@ -55,6 +64,10 @@ public class Adherent {
 	//Getters and Setters
 	public Long getId() {
 		return id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 
@@ -78,22 +91,25 @@ public class Adherent {
 	}
 
 
-	public LocalDate getBirthDate() {
-		return birthDate;
-	}
+//	public LocalDate getBirthDate() {
+//		return birthDate;
+//	}
+//
+//
+//	public void setBirthDate(LocalDate birthDate) {
+//		this.birthDate = birthDate;
+//	}
+//	
+//	public void setBirthDate(int [] birthDate) {
+//		this.birthDate = LocalDate.of(birthDate[0], birthDate[1], birthDate[2]);
+//	}
+//	
 
 
-	public void setBirthDate(LocalDate birthDate) {
-		this.birthDate = birthDate;
-	}
 	
-	public void setBirthDate(String birthDate) {
-		this.birthDate = LocalDate.parse(birthDate);
-	}
-	
-	public void setBirthDate(String birthDate , DateFormatList dateFormat) {
-		this.birthDate = LocalDate.parse(birthDate, DateTimeFormatter.ofPattern(dateFormat.toString()));
-	}
+//	public void setBirthDate(String birthDate , DateFormatList dateFormat) {
+//		this.birthDate = LocalDate.parse(birthDate, DateTimeFormatter.ofPattern(dateFormat.toString()));
+//	}
 
 
 	public String getEmail() {
@@ -116,12 +132,12 @@ public class Adherent {
 	}
 
 
-	public int getPostCode() {
+	public Integer getPostCode() {
 		return postCode;
 	}
 
 
-	public void setPostCode(int postCode) {
+	public void setPostCode(Integer postCode) {
 		this.postCode = postCode;
 	}
 
@@ -134,30 +150,60 @@ public class Adherent {
 	public void setCity(String city) {
 		this.city = city;
 	}
-
-
-	public Contribution getContribution() {
-		return contribution;
-	}
-
-
-	public void setContribution(Contribution contribution) {
-		this.contribution = contribution;
-	}
-
-
-	//Other Methods
-	@Override
-	public String toString() {
-		return "Adherant [id=" + id + ", name=" + name + ", firstName=" + firstName + ", birthDate=" + birthDate
-				+ ", email=" + email + ", adress=" + adress + ", postCode=" + postCode + ", city=" + city
-				+ ", contribution=" + contribution + "]";
-	}
 	
 	
-	public boolean validContribution() {
-		return (contribution!=null)&&(contribution.isValid());
+	
+	public Double getAmount() {
+		return amount;
 	}
+
+
+	public void setAmount(Double amount) {
+		this.amount = amount;
+	}
+
+	public Date getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
+	}
+
+	public Date getPayementDate() {
+		return payementDate;
+	}
+
+	public void setPayementDate(Date payementDate) {
+		this.payementDate = payementDate;
+	}
+
+
+//	public LocalDate getPayementDate() {
+//		return payementDate;
+//	}
+//
+//
+//	public void setPayementDate(LocalDate payementDate) {
+//		this.payementDate = payementDate;
+//	}
+//	
+//	public void setPayementDate(int [] payementDate) {
+//		this.payementDate = LocalDate.of(payementDate[0], payementDate[1], payementDate[2]);
+//	}
+//
+//
+	@JsonProperty
+	public Date getEndDate() {
+		return LocalDateConverter2.toDate(LocalDateConverter2.toLocalDate(payementDate).plusYears(1));
+	}
+//
+//	
+//	
+//	
+//	public boolean validContribution() {
+//		return this.getEndDate().isAfter(LocalDate.now());
+//	}
 	
 	
 	
