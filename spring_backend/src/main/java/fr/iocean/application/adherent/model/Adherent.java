@@ -58,8 +58,8 @@ public class Adherent implements GenericEntity{
 	private Date payementDate;
 
 
-	@OneToMany(mappedBy = "adherent")
-	private List<Loan> loanList;
+//	@OneToMany(mappedBy = "adherent")
+//	private List<Loan> loanList;
 
 
 
