@@ -66,13 +66,14 @@ public abstract class AbstractJpaRepository <T extends GenericEntity>{
 	}
 	
 	
-	public void delete(Long id) throws NotFoundException {
+	public T delete(Long id) throws NotFoundException {
 		T entity = findOne(id);
 		if (entity == null){
 			throw new NotFoundException();
 		}
 		
 		entityManager.remove(entity);
+		return entity;
 	}
 	
 	public boolean isNew(T entity) {

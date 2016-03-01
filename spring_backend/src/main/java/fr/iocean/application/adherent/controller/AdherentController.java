@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,7 @@ import fr.iocean.application.exception.NotFoundException;
 
 @RestController
 @RequestMapping("/api/adherent")
+@CrossOrigin
 public class AdherentController {
 	@Autowired
 	private AdherentService adherentService;
@@ -31,8 +33,8 @@ public class AdherentController {
 		return adherentService.findAll();
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, params={"sort","asc"})
-	public List<Adherent> findAll(@RequestParam AdherentColumns sort, @RequestParam Boolean asc) {
+	@RequestMapping(method = RequestMethod.GET, params={"sort"})
+	public List<Adherent> findAll(@RequestParam AdherentColumns sort, @RequestParam(defaultValue="true") Boolean asc) {
 		return adherentService.findAll(sort, asc);
 	}
 	
@@ -46,8 +48,8 @@ public class AdherentController {
 		return adherentService.findByName(name,AdherentColumns.name,true);
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, params = {"name","sort","asc"})
-	public List<Adherent> findByName(@RequestParam String name, @RequestParam AdherentColumns sort, @RequestParam Boolean asc){
+	@RequestMapping(method = RequestMethod.GET, params = {"name","sort"})
+	public List<Adherent> findByName(@RequestParam String name, @RequestParam AdherentColumns sort, @RequestParam(defaultValue="true") Boolean asc){
 		return adherentService.findByName(name,sort,asc);
 	}
 	
@@ -78,8 +80,8 @@ public class AdherentController {
 	
 	@RequestMapping(method = RequestMethod.DELETE,value = "{id}")
 	@PreAuthorize("hasAuthority('MANAGE_USERS')")
-	public void delete (@PathVariable Long id) throws NotFoundException{
-		adherentService.delete(id);
+	public Adherent delete (@PathVariable Long id) throws NotFoundException{
+		return adherentService.delete(id);
 	}
 	
 	
