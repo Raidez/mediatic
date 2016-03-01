@@ -1,12 +1,14 @@
 package fr.iocean.application.adherent.model;
 
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.Email;
@@ -14,6 +16,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import fr.iocean.application.loan.model.Loan;
 import fr.iocean.application.persistence.GenericEntity;
 import fr.iocean.application.persistence.util.date.LocalDateConverter2;
 
@@ -55,8 +58,8 @@ public class Adherent implements GenericEntity{
 	private Date payementDate;
 
 
-//	@OneToMany(mappedBy = "adherent")
-//	private List<Loan> loanList;
+	@OneToMany(mappedBy = "adherent")
+	private List<Loan> loanList;
 
 
 
